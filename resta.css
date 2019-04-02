@@ -1,0 +1,134 @@
+*{
+    font-family: 'Sacramento', cursive;
+}
+
+
+h1{
+    text-align: center;
+    font-size: 4.5em;
+    margin: .25em 0;
+}
+
+main{
+    display: flex;
+    justify-content: space-around;
+    height: 32em;
+}
+
+    main > div{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+
+
+
+label{
+    font-weight: bold;
+    font-size: 4em;
+    margin-right: .5em;
+    margin-left: 0.25em;
+}
+
+figure{
+    margin-top: 0.5em;
+    height: 15em;
+}
+
+
+
+#operacion{
+    margin: 0.25em auto 0.5em auto;
+    display: flex;
+    align-items: center;
+}
+
+
+
+
+
+#contenedor{
+    display: flex;
+    margin: auto;
+}
+
+    #seleccion{
+        display: flex;
+        flex-direction: column;
+        margin-left: .5em;
+    }
+
+            #seleccion > span > button {
+                margin: 0.25em 0.25em;
+                font-size: 2.5em;
+                font-weight: bold;
+                padding:  0.25em 0.75em 0.125em 0.75em;
+                border: none;
+                background-color: #F5F6CE;
+                border-radius: 10px;
+                box-shadow: 0px 3px 5px 2px #aaa;
+                cursor: pointer;
+                width: 2.5em;
+            }
+
+            #seleccion > span > button:hover{
+                 box-shadow: 0px 0px;
+            }
+
+
+
+
+
+    #saco{
+        margin-top: 1em;
+        margin-right: 2em;
+        width: 30em;
+    }
+
+        #saco>img{
+                width: 20em;
+                margin: 3em;
+        }
+
+        #saco>img:hover{
+            width: 22.5em;
+            margin: 1.5em;
+            cursor: pointer;
+        }
+
+	#saco>label{
+		font-size: 2.5em !important;
+		padding-right: 2.25em;
+	}
+
+
+
+
+body>div{
+    display: flex;
+    justify-content: space-around;
+}
+
+    #volver, #corregir, #otravez{
+        font-size: 2em;
+		font-weight: bold;
+		padding: .25em;
+        width: 5em;
+        cursor: pointer;
+    }
+
+    #otravez:disabled{
+        cursor: default;
+    }
+
+
+
+.seleccionado{
+	background-color: #F5DA81 !important;
+}
+
+
+.acertaste{
+	background-color: #BCF5A9 !important;
+}
+

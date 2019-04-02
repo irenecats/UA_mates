@@ -1,0 +1,100 @@
+*{
+    font-family: 'Sacramento', cursive;
+}
+#contdraw{
+    background-color: #aaa;
+    text-align: center;
+    width: 4em;
+    border-radius: 10px;
+    margin-bottom: 0.9em;
+    margin-top: 0.5em;
+}
+
+#contdraw>div{
+    padding:0.5em;
+    background-color: blueviolet;
+    margin: 0.5em; 
+    font-size: 1.2em;
+}
+#contdrop>div>div{
+    position: relative;
+    top:30%;
+}
+
+p{
+    font-size: 1.4em;
+    margin: 1em 0
+}
+
+img{
+    /*3-4?*/
+    width: 3em;
+    padding: 0.5em 0.1em; margin: 0.4em 0.1em;
+}
+h1{
+    text-align: center;
+    font-size: 3.5em;
+    margin: 0;
+    margin-bottom: 0.2em;
+}
+.drop>div{
+    background-color:rgb(209, 203, 203);
+    background-size: contain;
+    width: 3.5em;
+    height: 3.5em; 
+    margin: 0.5em;
+    border-radius: 10px;
+    border: 0.1em solid rgb(209, 203, 203);
+    text-align: center;
+
+}
+
+body>div{
+    display: flex;
+    flex-flow: row;
+    padding: 0 1em;
+    justify-content:center
+}
+#contdrop, #contdraw{
+    display: flex;
+    flex-flow: column;
+    margin-right: 5em;
+}
+
+#contpelota{
+    display: flex;
+    flex-flow: column;
+    margin-right: 1em;
+}
+#contpelota>div>img{
+    float: right;
+}
+
+.boton{
+    margin: 0.3em 1.5em;
+    font-size: 2em;
+    padding: 0.2em 0.5em;
+    border-radius: 5px;
+    background-color: white;
+    font-weight: bold; 
+    box-shadow: 0px 5px 10px 5px #aaa; 
+}
+
+.correcto{
+    background-color:  red !important;
+    border-color: red !important;
+}
+.drop-hover{
+    opacity: 0.6;
+    background-image: none;
+}
+body>div:last-of-type{
+    justify-content: space-around !important;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+.ayuda{
+    float: right;
+}
