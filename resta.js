@@ -30,7 +30,7 @@ function insertar(id, num){
 			});
 		}
 		else{
-			$(id).append("<img src=''./Imagenes/manzana.png' id='md"+ i +"' width='100em' />");
+			$(id).append("<img src='./Imagenes/manzana.png' id='md"+ i +"' width='100em' />");
 			$("#md"+i).draggable({
 				revert: "invalid",
 				containment: "document",
@@ -175,7 +175,7 @@ function jugando(){
 		console.log(cant1);
 		var cant2 = $("#manzanasDown").children().length;
 		if(cant1 < 5){
-			$("#manzanasUp").append("<img src=''./Imagenes/manzana.png' id='mu"+ (cant1+1) +"' width='100em' />");
+			$("#manzanasUp").append("<img src='./Imagenes/manzana.png' id='mu"+ (cant1+1) +"' width='100em' />");
 			$("#mu"+(cant1+1)).draggable({
 				revert: "invalid",
 				containment: "document",
@@ -184,7 +184,7 @@ function jugando(){
 			manzanasRestantes++;
 		}
 		else if(cant2 < 5){
-			$("#manzanasDown").append("<img src=''./Imagenes/manzana.png' id='md"+ (cant2+1) +"' width='100em' />");
+			$("#manzanasDown").append("<img src='./Imagenes/manzana.png' id='md"+ (cant2+1) +"' width='100em' />");
 			$("#md"+(cant2+1)).draggable({
 				revert: "invalid",
 				containment: "document",
