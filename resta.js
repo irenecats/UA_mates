@@ -17,7 +17,6 @@ function randInt(max,  min){
 }
 
 
-
 //Insertando manzanas
 function insertar(id, num){
 	for(let i=1;i<=num;i++){
@@ -42,7 +41,6 @@ function insertar(id, num){
 }
 
 
-
 //Random pero con limitacion
 function randInt2(num){
     var random = 0;
@@ -54,7 +52,6 @@ function randInt2(num){
     }
     return random;
 }
-
 
 
 // Genera numeros random de soluciones
@@ -74,11 +71,9 @@ function resultados(num){
 };
 
 
-
 //Se encarga del evento de cuando haces click en un boton
 function evento(){
 	$("button").click(function(){
-		console.log(this.id);
 		seleccionado = this.value;
 		idseleccionado = this.id;
 		$("button").removeClass("seleccionado");
@@ -126,7 +121,7 @@ function preparar(){
 	$("#v2").append(lista[1]);
 	$("#v2").attr("value",lista[1]);
 	$("#v3").append(lista[2]);
-	$("#v3").attr("value",lista[4]);
+	$("#v3").attr("value",lista[2]);
 	$("#v4").append(lista[3]);
 	$("#v4").attr("value",lista[3]);
 
@@ -140,8 +135,6 @@ function preparar(){
 	});
 	
 }
-
-
 
 
 function jugando(){
@@ -162,17 +155,14 @@ function jugando(){
 		drop: function(event, ui){
 			$("#"+ui.draggable[0].id).remove();
 			manzanasRestantes--;
-					console.log("Manzanas restantes: "+ manzanasRestantes);
-			
+								
 			$("#saco>img").css("width","20em");
 			$("#saco>img").css("margin","2em");
 		}
 	});
 
 	$("#saco>img").click(function(){
-		console.log("entre");
 		var cant1 = $("#manzanasUp").children().length;
-		console.log(cant1);
 		var cant2 = $("#manzanasDown").children().length;
 		if(cant1 < 5){
 			$("#manzanasUp").append("<img src='./Imagenes/manzana.png' id='mu"+ (cant1+1) +"' width='100em' />");
@@ -197,9 +187,113 @@ function jugando(){
 
 
 
+
+//Cambio de CSS a los botones cuando aciertas
+function acertasteBoton(){
+	$("#"+idseleccionado).removeClass("seleccionado");
+	$("#"+idseleccionado).addClass("acertaste");
+	if("v1" != idseleccionado){
+		$("#v1").prop("disabled", true);
+		$("#v1").css("box-shadow","none");
+	}
+	if("v2" != idseleccionado){
+		$("#v2").prop("disabled", true);
+		$("#v2").css("box-shadow","none");
+	}
+	if("v3" != idseleccionado){
+		$("#v3").prop("disabled", true);
+		$("#v3").css("box-shadow","none");
+	}
+	if("v4" != idseleccionado){
+		$("#v4").prop("disabled", true);
+		$("#v4").css("box-shadow","none");
+	}
+
+}
+
+function jugadoMal(){
+	console.log("-----------------");
+	console.log("jugadoMal");
+	console.log("-----------------");
+	if(seleccionado != 0 && seleccionado != (manzanas - valor)){
+		$("#"+idseleccionado).prop("disabled", true);
+		$("#"+idseleccionado).css("box-shadow","none");
+		$("#"+idseleccionado).removeClass("seleccionado");
+	}
+	else if(seleccionado == (manzanas - valor)){
+		acertasteBoton();
+	}
+	else{
+		//Aqui debe mostrar una alerta de que no se ha jugado con nada
+	}
+	
+	errorManzanas = false;
+	guardar(0,0,0);
+}
+
+function correcto(){
+	console.log("-----------------");
+	console.log("¡¡¡CORRECTO!!!");
+	console.log("-----------------");
+	acertasteBoton();
+	if((manzanas - valor) != manzanasRestantes)
+		errorManzanas = true;
+	else
+		errorManzanas = false;
+
+	$("#otravez").removeAttr("disabled");
+	guardar(1,0,0);
+}
+
+function manzanasMal(){
+	console.log("-----------------");
+	console.log("Manzanas mal");
+	console.log("-----------------");
+	
+	acertasteBoton();
+
+	if((manzanas - valor) != manzanasRestantes)
+		errorManzanas = true;
+	else
+		errorManzanas = false;
+	
+	guardar(0,1,0);
+}
+
+function operacionMal(){
+	console.log("-----------------");
+	console.log("operacionMal");
+	console.log("-----------------");
+	$("#"+idseleccionado).prop("disabled", true);
+	$("#"+idseleccionado).css("box-shadow","none");
+	$("#"+idseleccionado).removeClass("seleccionado");
+	if((manzanas - valor) != manzanasRestantes)
+		errorManzanas = true;
+	else
+		errorManzanas = false;
+	
+	guardar(0,0,1);
+}
+
+function todoMal(){
+	console.log("-----------------");
+	console.log("todoMal");
+	console.log("-----------------");
+	$("#"+idseleccionado).prop("disabled", true);
+	$("#"+idseleccionado).css("box-shadow","none");
+	$("#"+idseleccionado).removeClass("seleccionado");
+	if((manzanas - valor) != manzanasRestantes)
+		errorManzanas = true;
+	else
+		errorManzanas = false;
+	guardar(0,1,1);
+}
+
+
+
 //Guardando datos en sessionStorage
-function guardar(bien,mal){
-    if(seleccionado != 0){
+function guardar(bien,malM,malS){
+    if(bien != 0 || malM != 0 || malS != 0){
 		if(sessionStorage.getItem("mAciertos")==null){
 		sessionStorage.mAciertos = JSON.stringify(bien);
 		}
@@ -209,30 +303,31 @@ function guardar(bien,mal){
 		}
 
 		if(sessionStorage.getItem("mErroresS")==null){
-			sessionStorage.mErroresS = JSON.stringify(mal);
+			sessionStorage.mErroresS = JSON.stringify(malS);
 		}
 		else{
-			var errores = JSON.parse(sessionStorage.mErroresS)+mal;
+			var errores = JSON.parse(sessionStorage.mErroresS)+malS;
 			sessionStorage.mErroresS = JSON.stringify(errores);
 		}
 
 		if(sessionStorage.getItem("mErroresM")==null && errorManzanas){
-			sessionStorage.mErroresM = JSON.stringify(1);
+			sessionStorage.mErroresM = JSON.stringify(malM);
 		}
 		else if(errorManzanas){
-			var errores = JSON.parse(sessionStorage.mErroresM)+1;
+			var errores = JSON.parse(sessionStorage.mErroresM)+malM;
 			sessionStorage.mErroresM = JSON.stringify(errores);
 		}
 	}
+	else{
+		if(sessionStorage.getItem("mJugado")==null && (seleccionado == 0 || errorManzanas == 0)){
+			sessionStorage.mJugado = JSON.stringify(1);
+		}
+		else{
+			var jugado = JSON.parse(sessionStorage.mJugado)+1;
+			sessionStorage.mJugado = JSON.stringify(jugado);
+		}
+	}
 
-	if(sessionStorage.getItem("mJugado")==null && (seleccionado == 0 || errorManzanas == 0)){
-		sessionStorage.mJugado = JSON.stringify(1);
-	}
-	else if(seleccionado == 0 || errorManzanas == -1){
-		var jugado = JSON.parse(sessionStorage.mJugado)+1;
-		sessionStorage.mJugado = JSON.stringify(jugado);
-	}
-	
 	console.log("Aciertos: " + sessionStorage.mAciertos);
 	console.log("Errores por manzanas: " + sessionStorage.mErroresM);
 	console.log("Errores de operacion: " + sessionStorage.mErroresS);
@@ -241,79 +336,7 @@ function guardar(bien,mal){
 }
 
 
-//Lo que pasa cuando todo esta bien
-function correcto(){
-	console.log("¡¡¡CORRECTO!!!");
-	acertasteBoton();
-	if((manzanas - valor) != manzanasRestantes)
-		errorManzanas = true;
-	else
-		errorManzanas = false;
 
-	if(seleccionado == 0)
-		console.log("No ha jugado bien");
-
-	$("#otravez").removeAttr("disabled");
-	guardar(1,0);
-}
-
-
-//Lo que pasa por tener las manzanas mal
-function manzanasMal(){
-	console.log("Intentalo de nuevo");
-	acertasteBoton();
-
-	if((manzanas - valor) != manzanasRestantes)
-		errorManzanas = true;
-	else
-		errorManzanas = false;
-	
-	if(seleccionado == 0)
-		console.log("No ha jugado bien");
-	
-	guardar(0,1);
-}
-
-
-//Otra cosa mal
-function otraCosaMal(){
-	console.log("Intentalo de nuevo");
-	$("#"+idseleccionado).removeAttr("disabled");
-	$("#"+idseleccionado).css("box-shadow","none");
-	$("#"+idseleccionado).removeClass("seleccionado");
-	if((manzanas - valor) != manzanasRestantes)
-		errorManzanas = true;
-	else
-		errorManzanas = false;
-	
-	if(seleccionado == 0)
-		console.log("No ha jugado bien");
-	
-	guardar(0,1);
-}
-
-//Cambio de CSS a los botones cuando aciertas
-function acertasteBoton(){
-	$("#"+idseleccionado).removeClass("seleccionado");
-	$("#"+idseleccionado).addClass("acertaste");
-	if("v1" != idseleccionado){
-		$("#v1").attr("disabled",true);
-		$("#v1").css("box-shadow","none");
-	}
-	if("v2" != idseleccionado){
-		$("#v2").attr("disabled",true);
-		$("#v2").css("box-shadow","none");
-	}
-	if("v3" != idseleccionado){
-		$("#v3").attr("disabled",true);
-		$("#v3").css("box-shadow","none");
-	}
-	if("v4" != idseleccionado){
-		$("#v4").attr("disabled",true);
-		$("#v4").css("box-shadow","none");
-	}
-
-}
 
 /*****************************************************/
 
@@ -327,17 +350,21 @@ $(document).ready(function(){
 	jugando();
 
 	$("#corregir").click(function(){
-		if(seleccionado == (manzanas - valor) && manzanasRestantes == (manzanas - valor)){
+		if(seleccionado == 0 || manzanasRestantes == manzanas){
+			jugadoMal();
+		}
+		else if(seleccionado == (manzanas - valor) && manzanasRestantes == (manzanas - valor)){
 			correcto();
 		}
-		else if(seleccionado == (manzanas - valor)){
+		else if(seleccionado == (manzanas - valor) && manzanasRestantes != (manzanas - valor)){
 			manzanasMal();
 		}
-		else{
-			otraCosaMal();
+		else if(seleccionado != (manzanas - valor) && manzanasRestantes == (manzanas - valor)){
+			operacionMal();
 		}
-
-				console.log("Error manzanas: " + errorManzanas);
+		else{
+			todoMal();
+		}
 
 	});
 
