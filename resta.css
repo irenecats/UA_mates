@@ -6,7 +6,7 @@
 h1{
     text-align: center;
     font-size: 4.5em;
-    margin: .25em 0;
+    margin: .125em 0;
 }
 
 main{
@@ -87,7 +87,7 @@ figure{
 
         #saco>img{
                 width: 20em;
-                margin: 3em;
+                margin: 2em 3em;
         }
 
         #saco>img:hover{
@@ -131,4 +131,3 @@ body>div{
 .acertaste{
 	background-color: #BCF5A9 !important;
 }
-

@@ -5,9 +5,17 @@ var manzanasRestantes;
 var errorSolucion;
 var errorManzanas;
 
-/** Info del boton seleccionado **/
+// Info del boton seleccionado 
 var seleccionado;
 var idseleccionado;
+
+//Cantidad de manzanas arriba y abajo al principio
+var inicialUp;
+var inicialDown;
+
+//Cantidad de manzanas en cada momento
+var manzanasArriba;
+var manzanasAbajo;
 
 
 //Random
@@ -74,10 +82,26 @@ function resultados(num){
 //Se encarga del evento de cuando haces click en un boton
 function evento(){
 	$("button").click(function(){
-		seleccionado = this.value;
-		idseleccionado = this.id;
-		$("button").removeClass("seleccionado");
-		$("#"+idseleccionado).addClass("seleccionado");
+		if(manzanasRestantes == (manzanas - valor)){
+			seleccionado = this.value;
+			idseleccionado = this.id;
+			$("button").removeClass("seleccionado");
+			$("#"+idseleccionado).addClass("seleccionado");
+		}
+		else{
+			swal({
+				title: "El número de manzanas que quedan no es correcto. ¡Revisalo!",
+				icon: "success",
+			});
+
+			
+			if((manzanas - valor) != manzanasRestantes)
+				errorManzanas = true;
+			else
+				errorManzanas = false;
+
+			guardar(0,1,0);
+		}
 	});
 
 }
@@ -95,7 +119,12 @@ function preparar(){
 	var down = randInt(5,1);
 
 	insertar("#manzanasUp",up);
-	insertar("#manzanasDown", down)
+	insertar("#manzanasDown", down);
+
+	$("#otravez").hide();
+
+	inicialUp = $("#manzanasUp").children().length;
+	inicialDown = $("#manzanasDown").children().length;
 
 	manzanas = up + down;
 	manzanasRestantes = manzanas;
@@ -146,42 +175,42 @@ function jugando(){
 		accept: "#manzanasUp > img, #manzanasDown > img",
 		over: function(event, ui){
 			$("#saco>img").css("width","22.5em");
-			$("#saco>img").css("margin","1.5em");
+			$("#saco>img").css("margin","1em 2em");
 		},
 		out: function(event, ui){
 			$("#saco>img").css("width","20em");
-			$("#saco>img").css("margin","2em");
+			$("#saco>img").css("margin","2em 3em");
 		},
 		drop: function(event, ui){
-			$("#"+ui.draggable[0].id).remove();
-			manzanasRestantes--;
-								
+			manzanasArriba = $("#manzanasUp").children().length;
+			manzanasAbajo = $("#manzanasDown").children().length;
+			if(manzanasRestantes != (manzanas - valor)){
+				$("#"+ui.draggable[0].id).remove();
+				manzanasRestantes--;
+			}
+			else{
+				swal({
+					title: "El número de manzanas ya es correcto",
+					icon: "success",
+				});
+				guardar(0,1,0);
+				$("#manzanasUp").children().remove();
+				$("#manzanasDown").children().remove();
+				insertar("#manzanasUp",manzanasArriba);
+				insertar("#manzanasDown", manzanasAbajo);
+			}
+											
 			$("#saco>img").css("width","20em");
-			$("#saco>img").css("margin","2em");
+			$("#saco>img").css("margin","2em 3em");
 		}
 	});
 
 	$("#saco>img").click(function(){
-		var cant1 = $("#manzanasUp").children().length;
-		var cant2 = $("#manzanasDown").children().length;
-		if(cant1 < 5){
-			$("#manzanasUp").append("<img src='./Imagenes/manzana.png' id='mu"+ (cant1+1) +"' width='100em' />");
-			$("#mu"+(cant1+1)).draggable({
-				revert: "invalid",
-				containment: "document",
-				cursor: "move"
-			});
-			manzanasRestantes++;
-		}
-		else if(cant2 < 5){
-			$("#manzanasDown").append("<img src='./Imagenes/manzana.png' id='md"+ (cant2+1) +"' width='100em' />");
-			$("#md"+(cant2+1)).draggable({
-				revert: "invalid",
-				containment: "document",
-				cursor: "move"
-			});
-			manzanasRestantes++;
-		}
+		$("#manzanasUp").children().remove();
+		$("#manzanasDown").children().remove();
+		insertar("#manzanasUp",inicialUp);
+		insertar("#manzanasDown", inicialDown);
+		manzanasRestantes = manzanas;
 	});
 }
 
@@ -215,17 +244,11 @@ function jugadoMal(){
 	console.log("-----------------");
 	console.log("jugadoMal");
 	console.log("-----------------");
-	if(seleccionado != 0 && seleccionado != (manzanas - valor)){
-		$("#"+idseleccionado).prop("disabled", true);
-		$("#"+idseleccionado).css("box-shadow","none");
-		$("#"+idseleccionado).removeClass("seleccionado");
-	}
-	else if(seleccionado == (manzanas - valor)){
-		acertasteBoton();
-	}
-	else{
-		//Aqui debe mostrar una alerta de que no se ha jugado con nada
-	}
+	
+	swal({
+		title: "Selecciona primero una opción",
+		icon: "success",
+	  });
 	
 	errorManzanas = false;
 	guardar(0,0,0);
@@ -242,22 +265,14 @@ function correcto(){
 		errorManzanas = false;
 
 	$("#otravez").removeAttr("disabled");
+	$("#otravez").show();
+	$("#corregir").hide();
+	
 	guardar(1,0,0);
-}
-
-function manzanasMal(){
-	console.log("-----------------");
-	console.log("Manzanas mal");
-	console.log("-----------------");
-	
-	acertasteBoton();
-
-	if((manzanas - valor) != manzanasRestantes)
-		errorManzanas = true;
-	else
-		errorManzanas = false;
-	
-	guardar(0,1,0);
+	swal({
+		title: "¡Has acertado!",
+		icon: "success",
+	});
 }
 
 function operacionMal(){
@@ -275,19 +290,6 @@ function operacionMal(){
 	guardar(0,0,1);
 }
 
-function todoMal(){
-	console.log("-----------------");
-	console.log("todoMal");
-	console.log("-----------------");
-	$("#"+idseleccionado).prop("disabled", true);
-	$("#"+idseleccionado).css("box-shadow","none");
-	$("#"+idseleccionado).removeClass("seleccionado");
-	if((manzanas - valor) != manzanasRestantes)
-		errorManzanas = true;
-	else
-		errorManzanas = false;
-	guardar(0,1,1);
-}
 
 
 
@@ -350,21 +352,19 @@ $(document).ready(function(){
 	jugando();
 
 	$("#corregir").click(function(){
-		if(seleccionado == 0 || manzanasRestantes == manzanas){
+		if(seleccionado == 0){
 			jugadoMal();
 		}
 		else if(seleccionado == (manzanas - valor) && manzanasRestantes == (manzanas - valor)){
 			correcto();
 		}
-		else if(seleccionado == (manzanas - valor) && manzanasRestantes != (manzanas - valor)){
-			manzanasMal();
-		}
 		else if(seleccionado != (manzanas - valor) && manzanasRestantes == (manzanas - valor)){
 			operacionMal();
 		}
-		else{
-			todoMal();
-		}
+
+		//Reinicio la variable
+		seleccionado = 0;
+		idseleccionado = 0;
 
 	});
 
