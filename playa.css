@@ -117,4 +117,5 @@ a{
 }
 .swal-modal{
     height: fit-content !important;
+    margin: auto; /* Metido por la Judis*/
 }

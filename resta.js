@@ -91,7 +91,6 @@ function evento(){
 		else{
 			swal({
 				title: "El número de manzanas que quedan no es correcto. ¡Revisalo!",
-				icon: "success",
 			});
 
 			
@@ -115,13 +114,15 @@ function preparar(){
 	seleccionado = 0;
 	idseleccionado = 0;
 
+	//var audio = new Audio('./Audio/correcto');
+    //    audio.play();
+
 	var up = randInt(5,1);
 	var down = randInt(5,1);
 
 	insertar("#manzanasUp",up);
 	insertar("#manzanasDown", down);
 
-	$("#otravez").hide();
 
 	inicialUp = $("#manzanasUp").children().length;
 	inicialDown = $("#manzanasDown").children().length;
@@ -159,10 +160,6 @@ function preparar(){
 	});
 	
 	
-	$("#otravez").click(function(){
-		location.reload();
-	});
-	
 }
 
 
@@ -191,7 +188,6 @@ function jugando(){
 			else{
 				swal({
 					title: "El número de manzanas ya es correcto",
-					icon: "success",
 				});
 				guardar(0,1,0);
 				$("#manzanasUp").children().remove();
@@ -247,7 +243,6 @@ function jugadoMal(){
 	
 	swal({
 		title: "Selecciona primero una opción",
-		icon: "success",
 	  });
 	
 	errorManzanas = false;
@@ -264,15 +259,38 @@ function correcto(){
 	else
 		errorManzanas = false;
 
-	$("#otravez").removeAttr("disabled");
-	$("#otravez").show();
-	$("#corregir").hide();
 	
 	guardar(1,0,0);
-	swal({
-		title: "¡Has acertado!",
-		icon: "success",
-	});
+
+	var audio = new Audio('./Audio/correcto');
+	audio.play();
+
+	swal(
+		{
+			 title: "¡Bien hecho!",
+			 text: "¡Buen trabajo!",
+			 icon: "success",
+			 buttons: {
+				 cantch: {
+						text:"Otro juego",
+						value:"otro"
+						},
+				 catch: {
+					 text: "Volver a jugar",
+					 value: "rejugar",
+				 },
+			 },
+		 })
+		 .then((value) => {
+				 switch(value){
+						case "rejugar": location.reload();
+								break;
+						case "otro": location.replace("./index.html");
+								break;
+						default: 
+
+				 }
+		 });
 }
 
 function operacionMal(){

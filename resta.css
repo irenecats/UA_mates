@@ -1,5 +1,8 @@
 *{
     font-family: 'Sacramento', cursive;
+    /*text-transform: uppercase;*/
+    font-weight: bold;
+
 }
 
 
@@ -109,7 +112,7 @@ body>div{
     justify-content: space-around;
 }
 
-    #volver, #corregir, #otravez{
+    #volver, #corregir, #ayuda{
         font-size: 2em;
 		font-weight: bold;
 		padding: .25em;
@@ -117,9 +120,7 @@ body>div{
         cursor: pointer;
     }
 
-    #otravez:disabled{
-        cursor: default;
-    }
+
 
 
 
@@ -131,3 +132,9 @@ body>div{
 .acertaste{
 	background-color: #BCF5A9 !important;
 }
+
+.swal-modal{
+    height: fit-content !important;
+    margin: auto;
+}
+
