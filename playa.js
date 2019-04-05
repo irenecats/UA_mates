@@ -1,13 +1,11 @@
 var max;
 var norep=[];
+var aciertos=0;
 $(document).ready(function(){
 
     //preparar todo lo necesario para que funcione el juego
     preparar();
-    //recargar pagina
-    $("#juego").on("click", function(event){
-        location.reload();
-    });
+
     //comprobar si los resultados introducidos son correctos
     $("#corregir").on("click", function(event){
         comprobar();
@@ -170,21 +168,23 @@ function comprobar(){
        else{
         let res = max-norep[norep.length-1-index];
 
-           if($(this).children().eq(0).text()==res){
-            console.log("A");
-            console.log($(this).attr("class").split(" ")[2])
-            console.log("correcto")
+           if($(this).children().eq(0).text()==res || $(this).children().eq(1).text()==res){
+                console.log("correcto")
 
-            if($(this).attr("class").split(" ").length<3){
-               bien++;
-            }
-            else{
-                console.log("no cuento")
-            }
-               console.log("bien")
-               $(this).droppable("disable");
-               $(this).addClass("correcto")
-               $(this).children().eq(0).draggable("disable");
+                if($(this).attr("class").split(" ").length<3){
+                    bien++;
+                    aciertos++;
+                    console.log("   bien")
+                    $(this).droppable("disable");
+                    $(this).children().eq(0).css("display", "none");
+                    $(this).children().eq(0).draggable("disable");
+                    $(this).prepend("<img src='./Imagenes/correcto2.png'>")
+                    $(this).addClass("correcto")
+                    $(this).children().eq(1).css("display", "block");
+                }
+                else{
+                    console.log("no cuento")
+                }
            }
            else{
                 mal++;
@@ -192,22 +192,59 @@ function comprobar(){
                 let clas = $(this).children().eq(0).attr("class").split(" ")[0].slice(-1);
                 let newclas = "sol"+clas;
                 let add = "<div class='"+newclas+"'>"+clas+"</div>";
-
+                console.log("hey")
                 $(contdraw).append(add).children().last().draggable({
                     revert: "invalid",
                     cursor: "move"
                 });;
 
                 $(this).children().eq(0).remove(); 
-
            }
            
        }
     });
 
    corregir(bien,mal,no);
+   haTerminado();
 }
+function haTerminado(){
+    if(aciertos==4){
 
+        var audio = new Audio('./Audio/correcto');
+        audio.play();
+
+        $("#corregir").css("display", "none");
+        $("#rejugar").css("display", "block");
+
+        swal(
+            {
+               title: "¡Bien hecho!",
+               text: "¡Buen trabajo!",
+               icon: "success",
+               buttons: {
+                 cantch: {
+                    text:"Otro juego",
+                    value:"otro"
+                    },
+                 catch: {
+                   text: "Volver a jugar",
+                   value: "rejugar",
+                 },
+               },
+             })
+             .then((value) => {
+                 switch(value){
+                    case "rejugar": location.reload();
+                        break;
+                    case "otro": location.replace("./index.html");
+                        break;
+                    default: 
+    
+                 }
+             });
+
+    }
+}
 function corregir(bien, mal, sin){
 
     if(sessionStorage.getItem("pAciertos")==null){

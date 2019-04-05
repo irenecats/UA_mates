@@ -1,5 +1,6 @@
 *{
-    font-family: 'Sacramento', cursive;
+    text-transform: uppercase;
+    font-weight: bold;
 }
 #contdraw{
     background-color: #aaa;
@@ -8,6 +9,7 @@
     border-radius: 10px;
     margin-bottom: 0.9em;
     margin-top: 0.5em;
+    font-family: 'Sacramento' !important;
 }
 
 #contdraw>div{
@@ -19,6 +21,7 @@
 #contdrop>div>div{
     position: relative;
     top:30%;
+    font-family: 'Sacramento', cursive !important;
 }
 
 p{
@@ -32,10 +35,12 @@ img{
     padding: 0.5em 0.1em; margin: 0.4em 0.1em;
 }
 h1{
+    position: absolute;
     text-align: center;
     font-size: 3.5em;
     margin: 0;
     margin-bottom: 0.2em;
+    font-family: 'Amatic SC', cursive;
 }
 .drop>div{
     background-color:rgb(209, 203, 203);
@@ -60,7 +65,11 @@ body>div{
     flex-flow: column;
     margin-right: 5em;
 }
-
+#contdrop>div>img{
+    position: relative;
+    bottom: 30px;
+    left: 40%;
+}
 #contpelota{
     display: flex;
     flex-flow: column;
@@ -76,13 +85,17 @@ body>div{
     padding: 0.2em 0.5em;
     border-radius: 5px;
     background-color: white;
-    font-weight: bold; 
     box-shadow: 0px 5px 10px 5px #aaa; 
+    font-family: 'Amatic SC', cursive !important;
+    cursor: pointer;
 }
 
 .correcto{
     background-color:  red !important;
     border-color: red !important;
+}
+.correcto>div{
+    top:-110% !important;
 }
 .drop-hover{
     opacity: 0.6;
@@ -95,6 +108,13 @@ a{
     text-decoration: none;
     color: black;
 }
-.ayuda{
-    float: right;
+#ayuda{
+    position: relative;
+   right: -30%;
+}
+#rejugar{
+    display: none;
+}
+.swal-modal{
+    height: fit-content !important;
 }
