@@ -1,0 +1,25 @@
+*{
+    font-family: 'Sacramento', cursive;
+}
+h1{
+    text-align: center;
+}
+h2{
+    margin: 1em;
+    margin-bottom: 0;
+}
+body>div{
+    display: flex;
+    justify-content: space-around;
+    flex-flow: row;
+    font-size: 1.5em;
+}
+div>p{
+    margin: 0;
+}
+hr{
+    border-top: dotted #333 2px;
+}
+hr:last-of-type,hr:first-of-type{
+    border-top: solid #333 2px;
+}
