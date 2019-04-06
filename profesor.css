@@ -1,5 +1,10 @@
 *{
-    font-family: 'Sacramento', cursive;
+    font-family: 'Amatic SC', cursive;
+    font-weight: bold;
+}
+body{
+    padding: 2em;
+    padding-top: 0;
 }
 h1{
     text-align: center;
@@ -22,4 +27,24 @@ hr{
 }
 hr:last-of-type,hr:first-of-type{
     border-top: solid #333 2px;
+}
+
+#profesor{
+    float: right;
+    margin: 0.5em;
+    font-size: 2em;
+    padding: 0.3em 0.5em;
+    border-radius: 5px;
+    background-color: #ffd191;
+    border-color: #ffd191;
+    font-weight: bold; 
+    box-shadow: 0px 5px 10px 5px #aaa; 
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
+#profesor:hover{
+    background-color: #ffb959;
+    border-color: #ffb959;
+    box-shadow: 0px 0px;
 }

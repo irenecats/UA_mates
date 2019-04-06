@@ -39,7 +39,7 @@ $("#playa").append("<p>Sin responder: "+nojuegaplaya+"</p>");
 $("#playa").append("<p>Errores: "+erroresplaya+"</p>");
 $("#playa").append("<p>Aciertos: "+aciertosplaya+"</p>");
 
-$("#manzanas").append("<p>Errores al contar: "+errorescontar+"</p>");
+//$("#manzanas").append("<p>Errores al contar: "+errorescontar+"</p>");
 $("#manzanas").append("<p>Errores al restar: "+erroresrestar+"</p>");
 $("#manzanas").append("<p>Aciertos: "+aciertosmanzana+"</p>");
 
