@@ -2,21 +2,47 @@
     text-transform: uppercase;
     font-weight: bold;
 }
+
+html{
+   background-image: url("./Imagenes/image-from-rawpixel-id-513083-jpeg.jpg");
+   height: 100%;
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+}
+body>div:first-of-type{
+    margin: 1em;
+}
+
+body>div:last-of-type{
+    margin-top: 2em;
+}
+body{
+    background-color: white;
+    margin: 0 2em;
+    padding: 1em;
+    background-color: #fff9d2;
+    border-radius: 10px;
+}
+
 #contdraw{
-    background-color: #aaa;
+    background-color: #ffc577;
     text-align: center;
     width: 4em;
     border-radius: 10px;
-    margin-bottom: 0.9em;
-    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-top: 0.3em;
     font-family: 'Sacramento' !important;
 }
 
 #contdraw>div{
     padding:0.5em;
-    background-color: blueviolet;
-    margin: 0.5em; 
+    background-color: lightgoldenrodyellow;
+    margin: 0.85em 0.5em; 
     font-size: 1.2em;
+    box-shadow: 0px 4px 5px 2px #cc9751;
+    border-radius: 4px;
 }
 #contdrop>div>div{
     position: relative;
@@ -32,26 +58,22 @@ p{
 img{
     /*3-4?*/
     width: 3em;
-    padding: 0.5em 0.1em; margin: 0.4em 0.1em;
+    padding: 0.5em 0em; margin: 0.6em 0.1em;
 }
 h1{
-    position: absolute;
     text-align: center;
     font-size: 3.5em;
-    margin: 0;
-    margin-bottom: 0.2em;
+    margin: 0.3em !important;
     font-family: 'Amatic SC', cursive;
 }
 .drop>div{
-    background-color:rgb(209, 203, 203);
     background-size: contain;
     width: 3.5em;
     height: 3.5em; 
-    margin: 0.5em;
+    margin: 0.65em 0;
     border-radius: 10px;
-    border: 0.1em solid rgb(209, 203, 203);
+    border: 0.2em dashed #ffac3a;
     text-align: center;
-
 }
 
 body>div{
@@ -78,7 +100,11 @@ body>div{
 #contpelota>div>img{
     float: right;
 }
-
+#contpelota>div>img:first-of-type{
+    width: 2em;
+    padding-top: 1em;
+    margin-left: 0.5em;
+}
 .boton{
     margin: 0.3em 1.5em;
     font-size: 2em;
@@ -91,15 +117,16 @@ body>div{
 }
 
 .correcto{
-    background-color:  red !important;
-    border-color: red !important;
+    background-color:  rgb(185, 255, 120) !important;
+    border-color: rgb(185, 255, 120) !important;
 }
 .correcto>div{
     top:-110% !important;
 }
 .drop-hover{
     opacity: 0.6;
-    background-image: none;
+    background-color: #ffac3a;
+   /* background-image: none;*/
 }
 body>div:last-of-type{
     justify-content: space-around !important;
@@ -108,14 +135,23 @@ a{
     text-decoration: none;
     color: black;
 }
-#ayuda{
-    position: relative;
-   right: -30%;
-}
 #rejugar{
     display: none;
 }
 .swal-modal{
     height: fit-content !important;
     margin: auto; /* Metido por la Judis*/
+    font-family: 'Amatic SC', cursive;
+}
+div.swal-footer{
+    text-align: center !important;
+}
+.swal-button,.swal-button:focus{
+    background-color: #ffc577;
+    box-shadow: 0px 5px 10px 5px #aaa; 
+}
+.swal-button:hover{
+    background-color: #ffb959 !important;
+    border-color: #ffb959 !important;
+    box-shadow: 0px 0px !important;
 }

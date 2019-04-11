@@ -46,6 +46,9 @@ function preparar(){
         pelota.prepend("<div id='grp"+i+"'>")
         for(let j=0; j< norep[i];j++){
             pelota.children().first().append("<img src='./Imagenes/pelota.png'>")
+            if(j==norep[i]-1){
+               pelota.children().first().prepend("<img src='./Imagenes/plus.png'>");
+            }
         }
     }
 
@@ -114,6 +117,8 @@ function preparar(){
 
              ui.draggable.remove();
         },
+        accept: ".res1, .res2, .res3, .res4, .res5, .res6, .res7, .res8, .res9",
+        hoverClass: "drop-hover",
         greedy: true
     });
 
@@ -149,6 +154,7 @@ function preparar(){
 
                  ui.draggable.remove();
             },
+
             hoverClass: "drop-hover",
             greedy: true
           });
@@ -219,7 +225,6 @@ function haTerminado(){
         swal(
             {
                title: "¡Bien hecho!",
-               text: "¡Buen trabajo!",
                icon: "success",
                buttons: {
                  cantch: {
