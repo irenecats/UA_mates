@@ -1,11 +1,17 @@
 *{
-    font-family: 'Sacramento', cursive;
     /*text-transform: uppercase;*/
     font-weight: bold;
 
 }
 
-
+html{
+    background-image: url("./Imagenes/image-from-rawpixel-id-513083-jpeg.jpg");
+}
+body{
+    background-color: #fff9d2;
+    margin:1em 2em;
+    padding: 1em;
+}
 h1{
     text-align: center;
     font-size: 4.5em;
@@ -23,7 +29,9 @@ main{
         flex-direction: column;
         text-align: center;
     }
-
+    main>div>figure:first-of-type{
+        margin-right: 0px;
+    }
 
 
 label{
@@ -45,7 +53,14 @@ figure{
     display: flex;
     align-items: center;
 }
-
+#operacion>label{
+    font-size: 3em !important;
+    font-family: 'Sacramento', cursive !important;
+}
+#seleccion>span>button{
+    font-size: 2.5em !important;
+    font-family: 'Sacramento', cursive !important;
+}
 
 
 
@@ -65,13 +80,13 @@ figure{
                 margin: 0.25em 0.25em;
                 font-size: 2.5em;
                 font-weight: bold;
-                padding:  0.25em 0.75em 0.125em 0.75em;
+                padding:  0.25em 0.5em 0.125em 0.5em;
                 border: none;
                 background-color: #F5F6CE;
                 border-radius: 10px;
                 box-shadow: 0px 3px 5px 2px #aaa;
                 cursor: pointer;
-                width: 2.5em;
+                width: 2em;
             }
 
             #seleccion > span > button:hover{
@@ -125,7 +140,8 @@ body>div{
 
 
 .seleccionado{
-	background-color: #F5DA81 !important;
+    background-color: #F5DA81 !important;
+    box-shadow: none !important;
 }
 
 
@@ -135,6 +151,36 @@ body>div{
 
 .swal-modal{
     height: fit-content !important;
-    margin: auto;
+    margin: auto; /* Metido por la Judis*/
+}
+div.swal-footer{
+    text-align: center !important;
+}
+.swal-button,.swal-button:focus{
+    background-color: #ffc577;
+    box-shadow: 0px 5px 10px 5px #aaa; 
+}
+.swal-button:hover{
+    background-color: #ffb959 !important;
+    border-color: #ffb959 !important;
+    box-shadow: 0px 0px !important;
+}
+h1,#saco>label,body>div:last-of-type>input,#rejugar{
+    font-family: 'Amatic SC', cursive;
+}
+#rejugar,#ayuda,#corregir,#volver{
+    color: black;
+    text-decoration: none;
+    margin: 0.3em 1.5em;
+    font-size: 2em;
+    padding: 0.2em 0.5em;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0px 5px 10px 5px #aaa; 
+    font-family: 'Amatic SC', cursive !important;
+    cursor: pointer;
+}
+#rejugar{
+    display: none;
 }
 

@@ -29,7 +29,7 @@ function randInt(max,  min){
 function insertar(id, num){
 	for(let i=1;i<=num;i++){
 		if(id == "#manzanasUp"){
-			$(id).append("<img src='./Imagenes/manzana.png' id='mu"+ i +"' width='100em' />");
+			$(id).append("<img src='./Imagenes/manzana.png' id='mu"+ i +"' width='70em' />");
 			$("#mu"+i).draggable({
 				revert: "invalid",
 				containment: "document",
@@ -37,7 +37,7 @@ function insertar(id, num){
 			});
 		}
 		else{
-			$(id).append("<img src='./Imagenes/manzana.png' id='md"+ i +"' width='100em' />");
+			$(id).append("<img src='./Imagenes/manzana.png' id='md"+ i +"' width='70em' />");
 			$("#md"+i).draggable({
 				revert: "invalid",
 				containment: "document",
@@ -265,10 +265,12 @@ function correcto(){
 	var audio = new Audio('./Audio/correcto');
 	audio.play();
 
+	$("#corregir").css("display", "none");
+    $("#rejugar").css("display", "block");
+
 	swal(
 		{
 			 title: "¡Bien hecho!",
-			 text: "¡Buen trabajo!",
 			 icon: "success",
 			 buttons: {
 				 cantch: {
