@@ -6,6 +6,7 @@
 
 html{
     background-image: url("./Imagenes/image-from-rawpixel-id-513083-jpeg.jpg");
+    background-size: 40em;
 }
 body{
     background-color: #fff9d2;

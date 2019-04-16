@@ -5,6 +5,7 @@
 
 html{
    background-image: url("./Imagenes/image-from-rawpixel-id-513083-jpeg.jpg");
+   background-size: 40em;
    height: 100%;
    width: 100%;
    display: flex;

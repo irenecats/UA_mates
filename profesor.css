@@ -2,13 +2,78 @@
     font-family: 'Amatic SC', cursive;
     font-weight: bold;
 }
+
+html{
+    background-image: url("./Imagenes/image-from-rawpixel-id-513083-jpeg.jpg");
+    background-size: 40em;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+body{
+    margin: 0 2em;
+    padding: 1em;
+    background-color: #fff9d2;
+    border-radius: 10px;
+}
+body>h2{
+    margin-left: 2em;
+}
+h1{
+    text-align: center;
+    margin: 0.2em;
+    font-size: 3em;
+}
+p{
+    font-size: 1.5em;
+}
+h2{
+    font-weight: bold;
+    text-decoration: underline;
+    font-size: 2em;
+    margin: 0px;
+ }
+
+body>div{
+    display: flex;
+    flex-flow: row;
+    justify-content: space-evenly;
+}
+
+hr{
+    border-top: dotted #ffc577 4px;
+    border-bottom-width: 0px;
+}
+
+#profesor{
+    float: right;
+    margin: 0.5em;
+    font-size: 2em;
+    padding: 0.3em 0.5em;
+    border-radius: 5px;
+    background-color: #b5e8ff;
+    border-color: #b5e8ff;
+    font-weight: bold; 
+    box-shadow: 0px 5px 10px 5px #aaa; 
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
+
+#profesor:hover{
+    background-color: #87d9ff;
+    border-color: #87d9ff;
+    box-shadow: 0px 0px;
+}
+/*
 body{
     padding: 2em;
     padding-top: 0;
 }
-h1{
-    text-align: center;
-}
+
 h2{
     margin: 1em;
     margin-bottom: 0;
@@ -22,29 +87,7 @@ body>div{
 div>p{
     margin: 0;
 }
-hr{
-    border-top: dotted #333 2px;
-}
+
 hr:last-of-type,hr:first-of-type{
     border-top: solid #333 2px;
-}
-
-#profesor{
-    float: right;
-    margin: 0.5em;
-    font-size: 2em;
-    padding: 0.3em 0.5em;
-    border-radius: 5px;
-    background-color: #ffd191;
-    border-color: #ffd191;
-    font-weight: bold; 
-    box-shadow: 0px 5px 10px 5px #aaa; 
-    cursor: pointer;
-    text-decoration: none;
-    color: black;
-}
-#profesor:hover{
-    background-color: #ffb959;
-    border-color: #ffb959;
-    box-shadow: 0px 0px;
-}
+}*/
