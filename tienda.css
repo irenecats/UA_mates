@@ -4,62 +4,108 @@
     font-family: 'Amatic SC', cursive;
 }
 
+html{
+    background-image: url("./Imagenes/image-from-rawpixel-id-513083-jpeg.jpg");
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+body{
+    background-color: #fff1d2;
+    border-radius: 10px;
+    padding: 1.5em;
+}
+
+
 h1{
     font-family: 'Amatic SC', cursive;
     text-align: center;
-    font-size: 4.5em;
+    font-size: 4em;
     margin: .125em 0;
-    margin-bottom: 0.5em;
 }
+
 
 #enunciado{
     display: flex;
     flex-direction: row;
+    justify-content: space-evenly;
 }
 
-figure{
-    margin: 0;
+#monedero{
+    background-image: url("./Imagenes/monedero.png");
+    background-size: 21em auto;
+    height: 18em;
+    width: 21em;
 }
 
-    #monedero{
-        width: 25em;
-        margin-left: 6em;
+    #monedero>div{
+        width: 17.5em;
+        height:12em;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 6em;
     }
 
-    #objeto{
-        width: 20em;
-        margin-left: 3em;
+
+#objeto{
+    width: 20em;
+    display: flex;
+    flex-direction: column;
+    padding: auto;
+}
+
+    #objeto>img{
+        height: 12em;
+        width: 14em;
     }
 
-    #pregunta{
-        margin-top: 1em;
+    #etiqueta{
+        background-image: url("./Imagenes/etiqueta.png");
+        height: 4em;
+        background-size: 14em 6em; 
+        width: 8em;
+        padding: 1em 2em;
+        margin-left: 1em;
     }
 
-    #pregunta>div{
+    #etiqueta>p{
+        text-align: center;
         font-size: 3em;
         margin: 0;
-        text-align: center
-    }
-
-    button{
-        margin: 0.25em 0.25em;
-        font-size: 1.5em;
-        font-weight: bold;
-        padding:  0.25em 0.75em 0.125em 0.75em;
-        border: none;
-        background-color: #F5F6CE;
-        border-radius: 10px;
-        box-shadow: 0px 3px 5px 2px #aaa;
-        cursor: pointer;
-        width: 2.5em;
     }
 
 
-#precio{
-    position: absolute;
-    top: 410px;
-    left: 690px;
-    font-size: 4em;
+        
+/*****************************************/
+
+#pregunta{
+    margin-top: 1em;
+}
+
+#pregunta>div{
+    font-size: 3em;
+    margin: 0;
+    text-align: center
+}
+
+#contenido{
+    margin-top: .5em !important;
+}
+
+button{
+    margin: 0.25em 0.25em;
+    font-size: 1.125em;
+    font-weight: bold;
+    padding:  0.25em 0.75em 0.125em 0.75em;
+    border: none;
+    background-color: #F5F6CE;
+    border-radius: 10px;
+    box-shadow: 0px 3px 5px 2px #aaa;
+    cursor: pointer;
+    width: 2.5em;
 }
 
 
@@ -70,21 +116,33 @@ figure{
     border-radius: 1em;
 }
 
-#monedas{
-    position: absolute;
-    top: 240px;
-    left: 160px;
-    height: 14em;
-    width: 18em;
-    /*background-color: green;*/
-}
+
 
 #pregunta{
     text-align: center;
     margin: 0;
+    margin-top: 1em;
 }
 
-label{
+#pregunta>div>label{
+    font-size: .5em;
+    position: relative;
+    top: -15px; 
+}
+
+
+body>div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 2em;
+}
+
+body>div>input{
     font-size: 2em;
+    font-weight: bold;
+    padding: .25em;
+    width: 5em;
+    cursor: pointer;
+    font-family: 'Amatic SC', cursive;
 }
-

@@ -2,6 +2,16 @@
     font-family: 'Amatic SC', cursive;
     text-transform: uppercase;
 }
+
+
+html{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 img{
     width: 18em;
     height: 17em;
@@ -18,7 +28,8 @@ img:hover{
 
 h1{
     text-align: center;
-    font-size: 3.5em;
+    font-size: 6em;
+    font-weight: bold;
     margin: 0.2em 0 0.5em 0;
 
 }
@@ -43,6 +54,8 @@ body{
     cursor: pointer;
     text-decoration: none;
     color: black;
+    margin-top: 2em;
+    margin-right: 1.25em;
 }
 #profesor:hover{
     background-color: #ffb959;

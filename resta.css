@@ -1,19 +1,30 @@
 *{
-    /*text-transform: uppercase;*/
+    text-transform: uppercase;
     font-weight: bold;
 
 }
 
+
 html{
     background-image: url("./Imagenes/image-from-rawpixel-id-513083-jpeg.jpg");
     background-size: 40em;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
+
+
 body{
     background-color: #fff9d2;
     margin:1em 2em;
     padding: 1em;
 }
+   
+   
 h1{
+    font-family: 'Amatic SC', cursive;
     text-align: center;
     font-size: 4.5em;
     margin: .125em 0;
@@ -36,6 +47,7 @@ main{
 
 
 label{
+    font-family: 'Amatic SC', cursive;
     font-weight: bold;
     font-size: 4em;
     margin-right: .5em;
@@ -61,6 +73,10 @@ figure{
 #seleccion>span>button{
     font-size: 2.5em !important;
     font-family: 'Sacramento', cursive !important;
+}
+
+#operacion>label{
+	 font-family: 'Sacramento', cursive;
 }
 
 
@@ -134,6 +150,7 @@ body>div{
 		padding: .25em;
         width: 5em;
         cursor: pointer;
+    	font-family: 'Amatic SC', cursive;
     }
 
 
@@ -152,7 +169,7 @@ body>div{
 
 .swal-modal{
     height: fit-content !important;
-    margin: auto; /* Metido por la Judis*/
+    margin: auto;
 }
 div.swal-footer{
     text-align: center !important;
