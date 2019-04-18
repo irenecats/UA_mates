@@ -154,3 +154,25 @@ div.swal-footer{
     border-color: #ffb959 !important;
     box-shadow: 0px 0px !important;
 }
+
+.boton{
+    float: right;
+    margin: 0.5em;
+    font-size: 2em;
+    padding: 0.3em 0.5em;
+    border-radius: 5px;
+    background-color: #b5e8ff;
+    border-color: #b5e8ff;
+    font-weight: bold; 
+    box-shadow: 0px 5px 10px 5px #aaa; 
+    font-family: 'Amatic SC', cursive !important;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
+
+.boton:hover{
+    background-color: #87d9ff;
+    border-color: #87d9ff;
+    box-shadow: 0px 0px;
+}
