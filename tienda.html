@@ -4,20 +4,13 @@
 
         <meta charset="UTF-8">
         <meta name="author" content="Irene Clemente Aracil, Judith Mula Molina">
-
         <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Sacramento" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="tienda.css" />
         <script type="text/javascript" src="./jquery-3.3.1.js"></script>
-        <script type="text/javascript" src="tienda.js"></script>
-
-        
-        <!--<script type="text/javascript" src="jQuery.ui.touch-punch.js"></script> -->
         <script type="text/javascript" src="jquery-ui.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="jquery-ui.min.css">
-
-        <!-- Plugin de alerts -->
+        <script type="text/javascript" src="jQuery.ui.touch-punch.js"></script>
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
+        <script type="text/javascript" src="tienda.js"></script>
         <title>Compras</title>
     </head>
 
@@ -30,25 +23,27 @@
                     <div></div>
                 </div>
                 <div id="objeto">
-                    <img src="./Imagenes/rubik.png" />
-                    <div id="etiqueta"><p>25 cent.</p></div>
+                    <div id="etiqueta"><p></p></div>
                 </div>
             </div>
             
             <div id="pregunta">
-                
-                <div id="contenido" class="segunda">
-                        <label>Arrastra aquí las monedas que necesitas</label>
-                        <div></div>
-                        <!--<button id="si">Si</button>
-                        <button id="no">No</button>-->
+               
+                <div id="contenido" class="segunda oculto">
+                        <p>Arrastra aquí las monedas que necesitas</p>
+                        <p>¡Usa solo las necesarias!</p>
+                </div>
+                <div class="segunda">
+                    <button id="si">Si</button>
+                    <button id="no">No</button>
                 </div>
             </div> 
             
         </main>
         <div>
-            <input  id="volver" value="Volver" type="button">
-            <input  id="ayuda" value="Ayuda" type="button"> 
+            <a id="volver" href="./index.html" class="boton"> Volver</a>
+            <input  id="ayuda" value="Ayuda" type="button" class="boton"> 
+            <button class="boton oculto" id="corregir">Corregir</button>
         </div>
 
     </body>
