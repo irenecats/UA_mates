@@ -6,6 +6,7 @@
 
 html{
     background-image: url("./Imagenes/image-from-rawpixel-id-513083-jpeg.jpg");
+    background-size: 40em;
     height: 100%;
     width: 100%;
     display: flex;
@@ -219,4 +220,106 @@ body>div>input{
 
 .incorrecto{
     font-size: 0.75em;
+}
+
+/* animacion */
+#mano{
+    -webkit-transform: rotate(135deg);
+    transform: rotate(135deg);
+}
+
+#mano2{
+    -webkit-transform: rotate(225deg);
+    transform: rotate(225deg);
+}
+
+#mano4{
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+#mano5{
+}
+
+#mano3,#mano2,#mano,#mano4,#mano5{
+    background-size: 5em;
+    width: 5em;
+    height: 5em;
+    position: absolute;
+    z-index: 1;
+}
+
+.an1{
+    animation-name: anim1;
+    animation-duration: 1s;
+    animation-iteration-count: 3;
+}
+.an2{
+    animation-name: anim2;
+    animation-duration: 1s;
+    animation-delay: 3s;
+    animation-iteration-count: 3;
+}
+.an3{
+    animation-name: anim3;
+    animation-duration: 2s;
+    animation-delay: 6s;
+    animation-iteration-count: 3;
+}
+
+.an4{
+    animation-name: anim4;
+    animation-duration: 3s;
+    animation-iteration-count: 2;
+}
+
+.an5{
+    animation-name: pulsa;
+    animation-duration: 1s;
+    animation-delay: 6s;
+    animation-iteration-count: 3;
+}
+
+@keyframes anim1 {
+    from{
+        background-image: url(./Imagenes/mano.png);
+    }
+    0%   {left:10%; top:15%;background-image: url(./Imagenes/mano.png);}
+    50%  {left:7%; top:13%;background-image: url(./Imagenes/mano.png);}
+    100% {left:10%; top:15%;background-image: url(./Imagenes/mano.png);}
+}
+
+@keyframes anim2 {
+    from{
+        background-image: url(./Imagenes/mano.png);
+    }
+    0%   {top: 30%; right: 15%; background-image: url(./Imagenes/mano.png);}
+    50%  {top: 27%; right: 13%; background-image: url(./Imagenes/mano.png);}
+    100% {top: 30%; right: 15%; background-image: url(./Imagenes/mano.png);}
+}
+
+@keyframes anim3 {
+    from{
+        background-image: url(./Imagenes/mano.png);
+    }
+    0%   {top: 65%;left: 39%; background-image: url(./Imagenes/mano.png);}
+    50%  {top: 65%;left: 55%; background-image: url(./Imagenes/mano.png);}
+    100% {top: 65%;left: 39%; background-image: url(./Imagenes/mano.png);}
+}
+
+@keyframes anim4 {
+    from{
+        background-image: url(./Imagenes/mano.png);
+    }
+    0%   {top: 32%;left: 20%;background-image: url(./Imagenes/mano.png);}
+    50%  {top: 63%;left: 40%;background-image: url(./Imagenes/mano.png);}
+    100% {top: 32%;left: 20%;background-image: url(./Imagenes/mano.png);}
+}
+
+@keyframes pulsa{
+    from{background-image: url("./Imagenes/mano.png");bottom: -1%;right: 21%;background-size: 5em;width: 5em;height: 6em;}
+    40%{background-image: url("./Imagenes/mano.png");bottom: -1%;right: 21%;background-size: 5em; width: 5em;height: 6em;}
+    50%{background-image: url("./Imagenes/mano.png");bottom: -1%;right: 21%;background-size: 4em; width: 4em;height: 5em;}
+    60%{background-image: url("./Imagenes/mano.png");bottom: -1%;right: 21%;background-size: 5em; width: 5em;height: 6em;}
+    to{background-image: url("./Imagenes/mano.png");bottom: -1%;right: 21%;background-size: 5em; width: 5em;height: 6em;}
 }
