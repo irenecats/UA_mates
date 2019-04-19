@@ -67,16 +67,12 @@ figure{
     align-items: center;
 }
 #operacion>label{
-    font-size: 3em !important;
-    font-family: 'Sacramento', cursive !important;
+    font-size: 2.75em !important;
+    font-family: 'Sacramento', cursive;
 }
-#seleccion>span>button{
+#seleccion>span>div{
     font-size: 2.5em !important;
     font-family: 'Sacramento', cursive !important;
-}
-
-#operacion>label{
-	 font-family: 'Sacramento', cursive;
 }
 
 
@@ -93,20 +89,26 @@ figure{
         margin-left: .5em;
     }
 
-            #seleccion > span > button {
+        #seleccion > span{
+            display: flex;
+            flex-direction: row;
+        }
+
+            #seleccion > span > div {
                 margin: 0.25em 0.25em;
                 font-size: 2.5em;
                 font-weight: bold;
                 padding:  0.25em 0.5em 0.125em 0.5em;
                 border: none;
-                background-color: #F5F6CE;
+                background-color: white;
                 border-radius: 10px;
                 box-shadow: 0px 3px 5px 2px #aaa;
                 cursor: pointer;
-                width: 2em;
+                width: 1.5em;
+                height: 1.5em;
             }
 
-            #seleccion > span > button:hover{
+            #seleccion > span > div:hover{
                  box-shadow: 0px 0px;
             }
 
@@ -167,6 +169,28 @@ body>div{
 	background-color: #BCF5A9 !important;
 }
 
+
+.correcto{
+    width: 1.5em;
+    position: relative;
+    left: 50%;
+    bottom: 95px;
+}
+
+.incorrecto{
+    width: 1.5em;
+    position: relative;
+    left: 50%;
+    bottom: 85px;
+}
+
+.quitalo{
+    color: #aaa;
+}
+
+
+
+
 .swal-modal{
     height: fit-content !important;
     margin: auto;
@@ -191,6 +215,12 @@ h1,#saco>label,body>div:last-of-type>input,#rejugar{
     display: none;
 }
 
+body>div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 .boton{
     float: right;
     margin: 0.5em;
@@ -212,3 +242,318 @@ h1,#saco>label,body>div:last-of-type>input,#rejugar{
     border-color: #87d9ff;
     box-shadow: 0px 0px;
 }
+
+
+
+
+/******************************* ANIMACIONES ***********************************/
+
+.anim1{
+    position: absolute;;
+    animation-duration: 2s;
+    animation-name: anim1;
+    animation-iteration-count: 3;
+}
+
+.anim2{
+    position: absolute;
+    animation-delay: 6s;
+    animation-duration: 1s;
+    animation-name: pulsa;
+    animation-iteration-count: 3;
+}
+
+.anim3{
+    position: absolute;
+    animation-delay: 9.5s;
+    animation-duration: 4s;
+    animation-name: elegir;
+    animation-iteration-count: 1;
+}
+
+.anim41{
+    position: absolute; 
+    animation-delay: 13.5s;
+    animation-duration: 1s;
+    animation-name: pulsando;
+    animation-iteration-count: 3;
+}
+
+.anim42{
+    animation-delay: 13.5s;
+    animation-duration: 8s;
+    animation-name: fondo;
+}
+
+.anim5{
+    position: absolute;
+    animation-delay: 16.5s;
+    animation-duration: 2s;
+    animation-name: corregir;
+    animation-iteration-count: 1;
+}
+
+.anim61{
+    position: absolute;
+    animation-delay: 18.5s;
+    animation-duration: 1s;
+    animation-name: pulsando2;
+    animation-iteration-count: 3;
+}
+
+.anim62{
+    animation-delay: 18.5s;
+    animation-duration: 3s;
+    animation-name: corrigiendo;
+}
+
+
+@keyframes anim1 {
+    from { top: 28%;    left: 22.5%;    background-image: url("./Imagenes/mano.png"); background-size: 5em; width:5em; height: 6em;}
+    to   { top: 50%;    left: 60%;    background-image: url("./Imagenes/mano.png"); background-size: 5em; width:5em; height: 6em;}
+}
+
+@keyframes pulsa{
+    from{
+        top:50%;
+        left: 60%;
+        background-image: url("./Imagenes/mano.png");
+        background-size: 5em; 
+        width: 5em;
+        height: 6em;
+    }
+
+    40%{
+        background-image: url("./Imagenes/mano.png");
+        background-size: 5em; 
+        width: 5em;
+        height: 6em;
+    }
+
+    50%{
+        background-image: url("./Imagenes/mano.png");
+        background-size: 4em; 
+        width: 4em;
+        height: 5em;  
+    }
+
+    60%{
+        background-image: url("./Imagenes/mano.png");
+        background-size: 5em; 
+        width: 5em;
+        height: 6em;
+    }
+
+    to{  
+        top: 50%;
+        left: 60%;
+        background-image: url("./Imagenes/mano.png");
+        background-size: 5em; 
+        width: 5em;
+        height: 6em;
+    }
+}
+
+@keyframes elegir{
+    from{
+        top:60%;
+        left: 35%;
+        background-image: url("./Imagenes/mano.png");
+        background-size: 5em; 
+        width: 5em;
+        height: 6em;
+    }
+
+    20%{
+        top:70%;
+        left: 25%;
+        background-image: url("./Imagenes/mano.png");
+        background-size: 5em; 
+        width: 5em;
+        height: 6em;
+    }
+
+    40%{
+        top:60%;
+        left: 35%;
+        background-image: url("./Imagenes/mano.png");
+        background-size: 5em; 
+        width: 5em;
+        height: 6em;
+    }
+
+    60%{
+        top:60%;
+        left: 25%;
+        background-image: url("./Imagenes/mano.png");
+        background-size: 5em; 
+        width: 5em;
+        height: 6em;
+    }
+
+    80%{
+        top:70%;
+        left: 35%;
+        background-image: url("./Imagenes/mano.png");
+        background-size: 5em; 
+        width: 5em;
+        height: 6em;
+    }
+
+    to{
+        top:60%;
+        left: 35%;
+        background-image: url("./Imagenes/mano.png");
+        background-size: 5em; 
+        width: 5em;
+        height: 6em;
+    }
+}
+
+@keyframes pulsando{
+
+    from{
+        top:60%;
+        left: 35%;
+        background-image: url("./Imagenes/mano.png");
+        background-size: 5em; 
+        width: 5em;
+        height: 6em;
+    }
+
+    40%{
+        background-image: url("./Imagenes/mano.png");
+        background-size: 5em; 
+        width: 5em;
+        height: 6em;
+    }
+
+    50%{
+        background-image: url("./Imagenes/mano.png");
+        background-size: 4em; 
+        width: 4em;
+        height: 5em;  
+    }
+
+    60%{
+        background-image: url("./Imagenes/mano.png");
+        background-size: 5em; 
+        width: 5em;
+        height: 6em;
+    }
+
+    to{  
+        top: 60%;
+        left: 35%;
+        background-image: url("./Imagenes/mano.png");
+        background-size: 5em; 
+        width: 5em;
+        height: 6em;
+    }
+
+}
+
+    @keyframes fondo {
+        from{
+            background-color: white;
+            box-shadow: 0px 3px 5px 2px #aaa;
+        }
+        19%{
+            background-color: white;
+            box-shadow: 0px 3px 5px 2px #aaa;
+        }
+        20%{
+            
+            background-color: #ffb959;
+            box-shadow: none;
+        }
+        to{
+            background-color: #ffb959;
+            box-shadow: none;
+        }
+    }
+
+@keyframes corregir{
+
+    from{
+        top:60%;
+        left: 35%;
+        background-image: url("./Imagenes/mano.png");
+        background-size: 5em; 
+        width: 5em;
+        height: 6em;
+    }
+
+
+    to{  
+        top: 90%;
+        left: 80%;
+        background-image: url("./Imagenes/mano.png");
+        background-size: 5em; 
+        width: 5em;
+        height: 6em;
+    }
+
+}
+
+@keyframes pulsando2{
+
+    from{
+        top:90%;
+        left: 80%;
+        background-image: url("./Imagenes/mano.png");
+        background-size: 5em; 
+        width: 5em;
+        height: 6em;
+    }
+
+    40%{
+        background-image: url("./Imagenes/mano.png");
+        background-size: 5em; 
+        width: 5em;
+        height: 6em;
+    }
+
+    50%{
+        background-image: url("./Imagenes/mano.png");
+        background-size: 4em; 
+        width: 4em;
+        height: 5em;  
+    }
+
+    60%{
+        background-image: url("./Imagenes/mano.png");
+        background-size: 5em; 
+        width: 5em;
+        height: 6em;
+    }
+
+    to{  
+        top: 90%;
+        left: 80%;
+        background-image: url("./Imagenes/mano.png");
+        background-size: 5em; 
+        width: 5em;
+        height: 6em;
+    }
+
+}
+
+    @keyframes corrigiendo {
+        from{
+            background-color: #b5e8ff;
+            box-shadow: 0px 5px 10px 5px #aaa; 
+        }
+        15%{
+            background-color: #b5e8ff;
+            box-shadow: 0px 5px 10px 5px #aaa; 
+        }
+        20%{
+            background-color: #87d9ff;
+            box-shadow: none;
+        }
+        to{
+            background-color: #87d9ff;
+            box-shadow: none;
+        }
+    }
