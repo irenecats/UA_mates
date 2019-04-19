@@ -216,3 +216,7 @@ body>div>input{
     border-color: #87d9ff;
     box-shadow: 0px 0px;
 }
+
+.incorrecto{
+    font-size: 0.75em;
+}
