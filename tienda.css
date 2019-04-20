@@ -244,7 +244,7 @@ body>div>input{
 #mano3,#mano2,#mano,#mano4,#mano5{
     background-size: 5em;
     width: 5em;
-    height: 5em;
+    height: 6em;
     position: absolute;
     z-index: 1;
 }
