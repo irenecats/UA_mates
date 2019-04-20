@@ -311,7 +311,8 @@ function haTerminado(){
 
         $("#corregir").css("display", "none");
         $("#rejugar").css("display", "block");
-
+        $("#ayuda").toggleClass("oculto");
+        
         swal(
             {
                title: "¡Bien hecho!",

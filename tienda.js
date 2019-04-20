@@ -41,6 +41,8 @@ var monedas = [];
 var minmonedas = 0;
 var ayuda = 0;
 var audio;
+var audioAyuda1;
+var audioAyuda2;
 
 function comprobarP1( boton ){
     var resta = precio - dinero;
@@ -61,9 +63,8 @@ function comprobarP1( boton ){
             cont1 = 0;
         }
     }
-
-    if(cont1 == 0){
-       terminarAnimacion1();
+    if( ayuda == 1){
+        terminarAnimacion1();
     }
     console.log("Respuesta "+cont1);
     corregirP1();
@@ -101,6 +102,9 @@ function comprobarP2(){
     else{
         console.log("Casi! Intenta usar menos monedas")
         cont2 = 2;
+    }
+    if( ayuda == 1){
+        terminarAnimacion2();
     }
     corregirP2();
     muestraAlerta(false);
@@ -152,7 +156,8 @@ function muestraAlerta( boton){
                     })
                     
                     if(ayuda == 1){
-                        terminarAnimacion1();
+                        empezarAnimacion2();
+
                     }
                 }
                 else if(value == "pasarJuego" && boton == 1 ){
@@ -183,9 +188,11 @@ function muestraAlerta( boton){
     }
     else if(cont1 != -1 && cont2 != -1){
         console.log("muestro mensaje");
-        $("#corregir").toggleClass("oculto");
-        $("#rejugar").toggleClass("oculto");
+
         if(cont2==0){
+            $("#corregir").toggleClass("oculto");
+            $("#rejugar").toggleClass("oculto");
+            $("#ayuda").toggleClass("oculto");
             if(audio !== undefined){
                 audio.pause();
             }
@@ -452,21 +459,44 @@ function randInt(max,  min){
 
 //animacion
 function empezarAnimacion1(){
+    if(audioAyuda1 !== undefined){
+        audioAyuda1.pause()
+    }
+    if(audio !== undefined){
+        audio.pause()
+    }
+    audioAyuda1 = new Audio('./Audio/Tienda_1.wav');
+    audioAyuda1.play();
+
     $('#mano').addClass('an1');
     $('#mano2').addClass('an2');
     $('#mano3').addClass('an3');
 }
 function terminarAnimacion1(){
+    if(audioAyuda1 !== undefined){
+        audioAyuda1.pause()
+    }
     $('#mano').removeClass('an1');
     $('#mano2').removeClass('an2');
     $('#mano3').removeClass('an3');
 }
 
 function empezarAnimacion2(){
+    if(audioAyuda2 !== undefined){
+        audioAyuda2.pause()
+    }
+    if(audio !== undefined){
+        audio.pause()
+    }
+    audioAyuda2 = new Audio('./Audio/Tienda_2.wav');
+    audioAyuda2.play();
     $('#mano4').addClass('an4');
     $('#mano5').addClass('an5');
 }
 function terminarAnimacion2(){
+    if(audioAyuda2 !== undefined){
+        audioAyuda2.pause()
+    }
     $('#mano4').removeClass('an4');
     $('#mano5').removeClass('an5');
 }
