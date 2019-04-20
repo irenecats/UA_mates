@@ -87,6 +87,8 @@ body>div{
     flex-flow: column;
     margin-right: 5em;
 }
+
+
 #contdrop>div>img{
     position: relative;
     bottom: 30px;
@@ -176,3 +178,233 @@ div.swal-footer{
     border-color: #87d9ff;
     box-shadow: 0px 0px;
 }
+
+
+/**************************************/
+
+#mano1{
+    -webkit-transform: rotate(225deg);
+    transform: rotate(225deg);
+    position: absolute;
+    z-index: 1;
+}
+
+#mano3{
+    -webkit-transform: rotate(270deg);
+    transform: rotate(270deg);
+    position: absolute;
+    z-index: 1;
+}
+#mano2, #mano4{
+    z-index: 1;
+    position: absolute;
+}
+
+.anim1{
+    animation-duration: 1s;
+    animation-name: anim1;
+    animation-iteration-count: 3;
+}
+
+.anim2{
+    animation-delay: 3.25s;
+    animation-duration: 1s;
+    animation-name: anim2;
+    animation-iteration-count: 3;
+}
+
+    .anim22{
+        animation-delay: 3.25s;
+        animation-duration: 1s;
+        animation-name: anim22;
+        animation-iteration-count: 3;
+    }
+
+    .anim23{
+        animation-delay: 3.25s;
+        animation-duration: 1s;
+        animation-name: anim23;
+        animation-iteration-count: 3;
+    }
+
+.anim3{
+    animation-delay: 6.5s;
+    animation-duration: 1s;
+    animation-name: anim3;
+    animation-iteration-count: 3;
+}
+
+    .anim32{
+        animation-delay: 6.5s;
+        animation-duration: 1s;
+        animation-name: anim32;
+        animation-iteration-count: 3;
+    }
+
+    .anim33{
+        animation-delay: 6.5s;
+        animation-duration: 1s;
+        animation-name: anim33;
+        animation-iteration-count: 3;
+    }
+
+
+.anim4{
+    animation-delay: 9.75s;
+    animation-duration: 2s;
+    animation-name: anim4;
+    animation-iteration-count: 3;
+}
+
+    .anim42{
+        animation-delay: 9.75s;
+        animation-duration: 2s;
+        animation-name: anim42;
+        animation-iteration-count: 3;
+    }
+
+    .anim43{
+        animation-delay: 9.75s;
+        animation-duration: 2s;
+        animation-name: anim43;
+        animation-iteration-count: 3;
+    }
+
+
+
+
+@keyframes anim1 {
+    from{
+        top: 3%; 
+        right: 36%; 
+        background-image: url(./Imagenes/mano.png); 
+        background-size: 5em; 
+        width:3em;
+        height: 6em;
+    }
+    50%  {top: 0%; right: 33%; background-image: url(./Imagenes/mano.png); background-size: 5em; width:3em; height: 6em;}
+    100% {top: 3%; right: 36%; background-image: url(./Imagenes/mano.png); background-size: 5em; width:3em; height: 6em;}
+}
+
+
+
+@keyframes anim2 {
+    from{
+        top: 37%; 
+        right: 53%; 
+        background-image: url(./Imagenes/mano.png); 
+        background-size: 5em; 
+        width:3em;
+        height: 6em;
+    }
+    50%  {top: 37%; right: 48%; background-image: url(./Imagenes/mano.png); background-size: 5em; width:3em; height: 6em;}
+    100% {top: 37%; right: 53%; background-image: url(./Imagenes/mano.png); background-size: 5em; width:3em; height: 6em;}
+}
+
+    @keyframes anim22 {
+        from{
+            top: 37%; 
+            right: 45%; 
+            background-image: url(./Imagenes/mano.png); 
+            background-size: 5em; 
+            width:3em;
+            height: 6em;
+        }
+        50%  {top: 37%; right: 40%; background-image: url(./Imagenes/mano.png); background-size: 5em; width:3em; height: 6em;}
+        100% {top: 37%; right: 45%; background-image: url(./Imagenes/mano.png); background-size: 5em; width:3em; height: 6em;}
+    }
+
+    @keyframes anim23 {
+        from{
+            top: 37%; 
+            right: 50%; 
+            background-image: url(./Imagenes/mano.png); 
+            background-size: 5em; 
+            width:3em;
+            height: 6em;
+        }
+        50%  {top: 37%; right: 45%; background-image: url(./Imagenes/mano.png); background-size: 5em; width:3em; height: 6em;}
+        100% {top: 37%; right: 50%; background-image: url(./Imagenes/mano.png); background-size: 5em; width:3em; height: 6em;}
+    }
+
+
+
+
+@keyframes anim3 {
+    from{
+        top: 25%; 
+        right: 17%; 
+        background-image: url(./Imagenes/mano.png); 
+        background-size: 5em; 
+        width:3em;
+        height: 6em;
+    }
+    50%  {top: 25%; right: 14%; background-image: url(./Imagenes/mano.png); background-size: 5em; width:3em; height: 6em;}
+    100% {top: 25%; right: 17%; background-image: url(./Imagenes/mano.png); background-size: 5em; width:3em; height: 6em;}
+}
+
+    @keyframes anim32 {
+        from{
+            top: 25%; 
+            right: 10%; 
+            background-image: url(./Imagenes/mano.png); 
+            background-size: 5em; 
+            width:3em;
+            height: 6em;
+        }
+        50%  {top: 25%; right: 7%; background-image: url(./Imagenes/mano.png); background-size: 5em; width:3em; height: 6em;}
+        100% {top: 25%; right: 10%; background-image: url(./Imagenes/mano.png); background-size: 5em; width:3em; height: 6em;}
+    }
+
+    @keyframes anim33 {
+        from{
+            top: 25%; 
+            right: 20%; 
+            background-image: url(./Imagenes/mano.png); 
+            background-size: 5em; 
+            width:3em;
+            height: 6em;
+        }
+        50%  {top: 25%; right: 17%; background-image: url(./Imagenes/mano.png); background-size: 5em; width:3em; height: 6em;}
+        100% {top: 25%; right: 20%; background-image: url(./Imagenes/mano.png); background-size: 5em; width:3em; height: 6em;}
+    }
+
+
+@keyframes anim4 {
+    from{
+        top: 30%; 
+        right: 23%; 
+        background-image: url(./Imagenes/mano.png); 
+        background-size: 5em; 
+        width:3em;
+        height: 6em;
+    }
+    50%  {top: 52%; right: 38%; background-image: url(./Imagenes/mano.png); background-size: 5em; width:3em; height: 6em;}
+    100% {top: 30%; right: 23%; background-image: url(./Imagenes/mano.png); background-size: 5em; width:3em; height: 6em;}
+}
+
+    @keyframes anim42 {
+        from{
+            top: 30%; 
+            right: 18%; 
+            background-image: url(./Imagenes/mano.png); 
+            background-size: 5em; 
+            width:3em;
+            height: 6em;
+        }
+        50%  {top: 52%; right: 33%; background-image: url(./Imagenes/mano.png); background-size: 5em; width:3em; height: 6em;}
+        100% {top: 30%; right: 18%; background-image: url(./Imagenes/mano.png); background-size: 5em; width:3em; height: 6em;}
+    }
+
+    @keyframes anim43 {
+        from{
+            top: 30%; 
+            right: 28%; 
+            background-image: url(./Imagenes/mano.png); 
+            background-size: 5em; 
+            width:3em;
+            height: 6em;
+        }
+        50%  {top: 52%; right: 43%; background-image: url(./Imagenes/mano.png); background-size: 5em; width:3em; height: 6em;}
+        100% {top: 30%; right: 28%; background-image: url(./Imagenes/mano.png); background-size: 5em; width:3em; height: 6em;}
+    }

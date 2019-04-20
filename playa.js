@@ -14,8 +14,63 @@ $(document).ready(function(){
     //mostrar video/animación de ayuda
 
     //volver
+
+
+
+	/******************** ANIMACIONES ********************/
+    $("#ayuda").click(function(e){
+		empezarAnimacion();
+	});
+
+    var x = document.getElementById("mano4");
+	x.addEventListener("animationend", terminarAnimacion);
     
-})
+});
+
+
+function empezarAnimacion(){
+    var elem = 0;
+    norep.forEach(e => {
+        if(e >= elem)
+            elem = e;
+    });
+
+    if(elem >= 8){
+        $("#mano1").addClass("anim1");
+        $("#mano2").addClass("anim22");
+        $("#mano3").addClass("anim32");
+        $("#mano4").addClass("anim42");
+    }
+    else if(elem>=6){
+        $("#mano1").addClass("anim1");
+        $("#mano2").addClass("anim2");
+        $("#mano3").addClass("anim3");
+        $("#mano4").addClass("anim4");
+    }
+    else{
+        $("#mano1").addClass("anim1");
+        $("#mano2").addClass("anim23");
+        $("#mano3").addClass("anim33");
+        $("#mano4").addClass("anim43");
+    }
+}
+
+function terminarAnimacion(){
+    $("#mano1").removeClass("anim1");
+    $("#mano2").removeClass("anim22");
+    $("#mano3").removeClass("anim32");
+    $("#mano4").removeClass("anim42");
+    $("#mano1").removeClass("anim1");
+    $("#mano2").removeClass("anim2");
+    $("#mano3").removeClass("anim3");
+    $("#mano4").removeClass("anim4");
+    $("#mano1").removeClass("anim1");
+    $("#mano2").removeClass("anim23");
+    $("#mano3").removeClass("anim33");
+    $("#mano4").removeClass("anim43");
+}
+
+
 
 function preparar(){
     max = randInt(5,11);
@@ -214,6 +269,8 @@ function comprobar(){
    corregir(bien,mal,no);
    haTerminado();
 }
+
+
 function haTerminado(){
     if(aciertos==4){
         if(audio !== undefined){
@@ -253,6 +310,8 @@ function haTerminado(){
 
     }
 }
+
+
 function corregir(bien, mal, sin){
 
     if(sessionStorage.getItem("pAciertos")==null){
@@ -279,6 +338,7 @@ function corregir(bien, mal, sin){
         sessionStorage.pVacio = JSON.stringify(noResp);
     }
 }
+
 
 function randInt(max,  min){
     var random =Math.floor(Math.random() * (+max - +min)) + +min; 

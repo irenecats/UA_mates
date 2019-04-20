@@ -249,7 +249,7 @@ body>div{
 /******************************* ANIMACIONES ***********************************/
 
 .anim1{
-    position: absolute;;
+    position: absolute;
     animation-duration: 2s;
     animation-name: anim1;
     animation-iteration-count: 3;
