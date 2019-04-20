@@ -183,6 +183,8 @@ function muestraAlerta( boton){
     }
     else if(cont1 != -1 && cont2 != -1){
         console.log("muestro mensaje");
+        $("#corregir").toggleClass("oculto");
+        $("#rejugar").toggleClass("oculto");
         if(cont2==0){
             if(audio !== undefined){
                 audio.pause();
@@ -214,6 +216,7 @@ function muestraAlerta( boton){
         
                      }
                  });
+
                  if(ayuda == 1){
                     terminarAnimacion2();
                 }

@@ -177,7 +177,7 @@ body>div>input{
 }
 
 .oculto{
-    display: none;
+    display: none !important;
 }
 
 .monedero-hover, .conten-hover{
