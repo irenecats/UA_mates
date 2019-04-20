@@ -2,6 +2,8 @@ var max;
 var norep=[];
 var aciertos=0;
 var audio;
+var audioAyuda;
+
 $(document).ready(function(){
 
     //preparar todo lo necesario para que funcione el juego
@@ -22,13 +24,20 @@ $(document).ready(function(){
 		empezarAnimacion();
 	});
 
-    var x = document.getElementById("mano4");
+    var x = document.getElementById("mano7");
 	x.addEventListener("animationend", terminarAnimacion);
     
 });
 
 
 function empezarAnimacion(){
+
+    if(audioAyuda !== undefined){
+        audioAyuda.pause()
+    }
+    audioAyuda = new Audio('./Audio/Playa.wav');
+    audioAyuda.play();
+
     var elem = 0;
     norep.forEach(e => {
         if(e >= elem)
@@ -40,22 +49,34 @@ function empezarAnimacion(){
         $("#mano2").addClass("anim22");
         $("#mano3").addClass("anim32");
         $("#mano4").addClass("anim42");
+        $("#mano5").addClass("anim5");
+        $("#mano6").addClass("anim6");
+        $("#mano7").addClass("anim72");
     }
     else if(elem>=6){
         $("#mano1").addClass("anim1");
         $("#mano2").addClass("anim2");
         $("#mano3").addClass("anim3");
         $("#mano4").addClass("anim4");
+        $("#mano5").addClass("anim5");
+        $("#mano6").addClass("anim6");
+        $("#mano7").addClass("anim7");
     }
     else{
         $("#mano1").addClass("anim1");
         $("#mano2").addClass("anim23");
         $("#mano3").addClass("anim33");
         $("#mano4").addClass("anim43");
+        $("#mano5").addClass("anim5");
+        $("#mano6").addClass("anim6");
+        $("#mano7").addClass("anim73");
     }
 }
 
 function terminarAnimacion(){
+    if(audioAyuda !== undefined){
+        audioAyuda.pause()
+    }
     $("#mano1").removeClass("anim1");
     $("#mano2").removeClass("anim22");
     $("#mano3").removeClass("anim32");
@@ -68,6 +89,11 @@ function terminarAnimacion(){
     $("#mano2").removeClass("anim23");
     $("#mano3").removeClass("anim33");
     $("#mano4").removeClass("anim43");
+    $("#mano5").removeClass("anim5");
+    $("#mano6").removeClass("anim6");
+    $("#mano7").removeClass("anim7");
+    $("#mano7").removeClass("anim72");
+    $("#mano7").removeClass("anim73");
 }
 
 
@@ -275,6 +301,10 @@ function haTerminado(){
     if(aciertos==4){
         if(audio !== undefined){
             audio.pause();
+        }
+        if(audioAyuda !== undefined){
+            audioAyuda.pause();
+            terminarAnimacion();
         }
         audio = new Audio('./Audio/muyBien.wav');
         audio.play();
