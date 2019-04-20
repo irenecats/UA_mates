@@ -40,6 +40,7 @@ var cont2   = 3;
 var monedas = [];
 var minmonedas = 0;
 var ayuda = 0;
+var audio;
 
 function comprobarP1( boton ){
     var resta = precio - dinero;
@@ -109,6 +110,12 @@ function muestraAlerta( boton){
 
     if(cont1 != 2 && cont2 == 3){
         if(cont1 == 0){
+            if(audio !== undefined){
+                console.log(audio);
+                audio.pause();
+            }
+            audio = new Audio('./Audio/bienHecho.wav');
+            audio.play();
             swal(
                 {
                    title: "¡Bien hecho!",
@@ -151,9 +158,15 @@ function muestraAlerta( boton){
                 else if(value == "pasarJuego" && boton == 1 ){
                     location.reload();
                 }
+                
             });
         }
         else{
+            if(audio !== undefined){
+                audio.pause();
+            }
+            audio = new Audio('./Audio/Intentalodenuevo.wav');
+            audio.play();
             swal("¡Casi! Intentalo de nuevo",  {
                 button: "Aceptar",
               });
@@ -171,9 +184,14 @@ function muestraAlerta( boton){
     else if(cont1 != -1 && cont2 != -1){
         console.log("muestro mensaje");
         if(cont2==0){
+            if(audio !== undefined){
+                audio.pause();
+            }
+            audio = new Audio('./Audio/muyBien.wav');
+            audio.play();
             swal(
                 {
-                   title: "¡Bien hecho!",
+                   title: "¡Muy Bien!",
                    icon: "success",
                    buttons: {
                      cantch: {
@@ -202,10 +220,17 @@ function muestraAlerta( boton){
         }
         else{
             var mensaje = "";
+            if(audio !== undefined){
+                audio.pause();
+            }
             if(cont2 == 1){
-                mensaje = "Casi! Intentalo de nuevo";
+                audio = new Audio('./Audio/cuentaMonedas.wav');
+                audio.play();
+                mensaje = "Casi! Vuelve a contar las monedas";
             }
             else{
+                audio = new Audio('./Audio/menosMonedas.wav');
+                audio.play();
                 mensaje = "Casi! Intenta usar menos monedas";
             }
             swal(

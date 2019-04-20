@@ -18,7 +18,8 @@ var manzanasArriba;
 var manzanasAbajo;
 
 var seleccionCorrecta;
-
+//Audio
+var audio
 
 //Random
 function randInt(max,  min){
@@ -241,7 +242,11 @@ function jugadoMal(){
 	console.log("-----------------");
 	console.log("jugadoMal");
 	console.log("-----------------");
-	
+	if(audio !== undefined){
+		audio.pause();
+	}
+	audio = new Audio('./Audio/antesCorrect.wav');
+	audio.play();
 	swal({
 		title: "Antes de corregir, selecciona una opción",
 	  });
@@ -262,8 +267,10 @@ function correcto(){
 
 	
 	guardar(1,0,0);
-
-	var audio = new Audio('./Audio/correcto');
+	if(audio !== undefined){
+		audio.pause();
+	}
+	var audio = new Audio('./Audio/bienHecho.wav');
 	audio.play();
 
 	$("#corregir").css("display", "none");
@@ -308,6 +315,11 @@ function operacionMal(){
 	else
 		errorManzanas = false;
 
+		if(audio !== undefined){
+			audio.pause();
+		}
+		audio = new Audio('./Audio/manzanasMal.wav');
+		audio.play();
 	swal({
 		title: "¡Casi! Has quitado bien las manzanas pero, ¿has contado bien las que quedan?",
 	});
@@ -323,9 +335,14 @@ function manzanasMal(){
 
 	acertasteBoton();
 	seleccionCorrecta = true;
-
+	
+	if(audio !== undefined){
+		audio.pause();
+	}
+	audio = new Audio('./Audio/arrastra.wav');
+	audio.play();
 	swal({
-		title: "¡Casi! La resta está bien, reinicia las manzanas y vuelve a contar las que debes quitar",
+		title: "¡Casi! La resta está bien, pulsa el saco y arrastra las manzanas de nuevo",
 	});
 
 	guardar(0,1,0);
@@ -342,7 +359,11 @@ function todoMal(){
 	$("#"+idseleccionado).prop("disabled", true);
 	$("#"+idseleccionado).css("box-shadow","none");
 	$("#"+idseleccionado).removeClass("seleccionado");
-
+	if(audio !== undefined){
+		audio.pause();
+	}
+	audio = new Audio('./Audio/Intentalodenuevo.wav');
+	audio.play();
 	swal({
 		title: "¡Intentalo de nuevo!",
 	});

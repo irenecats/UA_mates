@@ -1,6 +1,7 @@
 var max;
 var norep=[];
 var aciertos=0;
+var audio;
 $(document).ready(function(){
 
     //preparar todo lo necesario para que funcione el juego
@@ -215,8 +216,10 @@ function comprobar(){
 }
 function haTerminado(){
     if(aciertos==4){
-
-        var audio = new Audio('./Audio/correcto');
+        if(audio !== undefined){
+            audio.pause();
+        }
+        audio = new Audio('./Audio/muyBien.wav');
         audio.play();
 
         $("#corregir").css("display", "none");
