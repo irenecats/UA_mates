@@ -49,8 +49,8 @@ if(sessionStorage.getItem("tNominimo")!=null){
 }
 
 $("#monedas").append("<p>Sabe cual numero es mayor: "+aciertosMayor+"</p>");
-$("#monedas").append("<p>No sabe cual numero es mayor: "+erroresMayor+"</p>");
-$("#monedas").append("<p>Usa el mínmo nº de monedas: "+aciertosMonedas+"</p>");
+$("#monedas").append("<p>No sabe qué numero es mayor: "+erroresMayor+"</p>");
+$("#monedas").append("<p>Usa el mínimo nº de monedas: "+aciertosMonedas+"</p>");
 $("#monedas").append("<p>Usa monedas de más: "+muchasMonedas+"</p>");
 $("#monedas").append("<p>No ha alcanzado el precio: "+errorMonedas+"</p>");
 
