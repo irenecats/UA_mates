@@ -62,8 +62,8 @@ $("#playa").append("<p>Sin responder: "+nojuegaplaya+"</p>");
 $("#playa").append("<p>Errores: "+erroresplaya+"</p>");
 $("#playa").append("<p>Aciertos: "+aciertosplaya+"</p>");
 
-$("#manzanas").append("<p>Errores al quitar: "+errorescontar+"</p>");
-$("#manzanas").append("<p>Errores al restar: "+erroresrestar+"</p>");
+$("#manzanas").append("<p>Errores al restar: "+errorescontar+"</p>");
+$("#manzanas").append("<p>Errores al quitar: "+erroresrestar+"</p>");
 $("#manzanas").append("<p>Aciertos: "+aciertosmanzana+"</p>");
 
 
