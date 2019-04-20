@@ -18,8 +18,15 @@ var manzanasArriba;
 var manzanasAbajo;
 
 var seleccionCorrecta;
+
 //Audio
-var audio
+var audio;
+var audioAyuda;
+
+
+
+
+
 
 //Random
 function randInt(max,  min){
@@ -259,6 +266,9 @@ function correcto(){
 	console.log("-----------------");
 	console.log("¡¡¡CORRECTO!!!");
 	console.log("-----------------");
+
+	$("#ayuda").css("display","none");
+
 	acertasteBoton();
 	if((manzanas - valor) != manzanasRestantes)
 		errorManzanas = true;
@@ -433,6 +443,17 @@ function valorar(bien){
 /*****************************************************/
 
 function empezarAnimacion(){
+
+	if(audio !== undefined){
+		audio.pause();
+	}
+
+	if(audioAyuda !== undefined){
+        audioAyuda.pause()
+	}
+	audioAyuda = new Audio('./Audio/manzanas.wav');
+	audioAyuda.play();
+
 	$("#mano").addClass("anim1");
 	$("#mano2").addClass("anim2");
 	$("#mano3").addClass("anim3");
@@ -441,9 +462,14 @@ function empezarAnimacion(){
 	$("#mano5").addClass("anim5");
 	$("#mano6").addClass("anim61");
 	$("#corregir").addClass("anim62");
+	$("#mano7").addClass("anim7");
+	$("#mano8").addClass("anim8");
 }
 
 function terminarAnimacion(){
+	if(audioAyuda !== undefined){
+        audioAyuda.pause()
+    }
 	$("#mano").removeClass("anim1");
 	$("#mano2").removeClass("anim2");
 	$("#mano3").removeClass("anim3");
@@ -452,6 +478,8 @@ function terminarAnimacion(){
 	$("#mano5").removeClass("anim5");
 	$("#mano6").removeClass("anim61");
 	$("#corregir").removeClass("anim62");
+	$("#mano7").removeClass("anim7");
+	$("#mano8").removeClass("anim8");
 }
 
 
@@ -466,6 +494,7 @@ $(document).ready(function(){
 
 	$("#corregir").click(function(){
 
+		terminarAnimacion();
 		//Seleccionar una opcion
 		if(seleccionado == 0 && !seleccionCorrecta){
 			jugadoMal();
