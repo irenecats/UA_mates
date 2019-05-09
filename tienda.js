@@ -3,6 +3,16 @@ $(document).ready(function(){
     //preparar todo lo necesario para que funcione el juego
     preparar();
 
+    
+    if(sessionStorage.getItem("tPartidas")==null){
+		sessionStorage.tPartidas = JSON.stringify(1);
+	}
+	else{
+		var partidas = JSON.parse(sessionStorage.tPartidas)+1;
+		sessionStorage.tPartidas = JSON.stringify(partidas);
+	}
+
+
     //comprobar si los resultados introducidos son correctos
     $("#corregir").on("click", function(event){
         comprobarP2();

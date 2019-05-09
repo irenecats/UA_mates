@@ -206,6 +206,8 @@ function jugando(){
 			//if(manzanasRestantes != (manzanas - valor)){
 				$("#"+ui.draggable[0].id).remove();
 				manzanasRestantes--;
+				$("#metidas").empty();
+			$("#metidas").append("<label>" + (manzanas - manzanasRestantes) + "</label>");
 			//}
 			/*else{
 				swal({
@@ -229,6 +231,8 @@ function jugando(){
 		insertar("#manzanasUp",inicialUp);
 		insertar("#manzanasDown", inicialDown);
 		manzanasRestantes = manzanas;
+		$("#metidas").empty();
+		$("#metidas").append("<label>0</label>");
 	});
 }
 
@@ -489,8 +493,17 @@ function terminarAnimacion(){
 $(document).ready(function(){
 
 	preparar();
+	$("#metidas").append("<label>0</label>");
 
 	jugando();
+	if(sessionStorage.getItem("mPartidas")==null){
+		sessionStorage.mPartidas = JSON.stringify(1);
+	}
+	else{
+		var partidas = JSON.parse(sessionStorage.mPartidas)+1;
+		sessionStorage.mPartidas = JSON.stringify(partidas);
+	}
+
 
 	$("#corregir").click(function(){
 

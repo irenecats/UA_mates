@@ -8,7 +8,17 @@ $(document).ready(function(){
 
     //preparar todo lo necesario para que funcione el juego
     preparar();
-
+    
+    
+    if(sessionStorage.getItem("pPartidas")==null){
+		sessionStorage.pPartidas = JSON.stringify(1);
+	}
+	else{
+		var partidas = JSON.parse(sessionStorage.pPartidas)+1;
+		sessionStorage.pPartidas = JSON.stringify(partidas);
+    }
+    
+    
     //comprobar si los resultados introducidos son correctos
     $("#corregir").on("click", function(event){
         comprobar();

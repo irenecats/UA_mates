@@ -36,6 +36,9 @@ h1{
 
 body>div{
     text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 body{
     background-image: url("./Imagenes/image-from-rawpixel-id-513083-jpeg.jpg");
@@ -65,4 +68,18 @@ body{
 
 .icon{
     font-size: 1.5em;
+}
+
+
+
+a{
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+}
+
+a>label{
+    font-size: 2em;
 }
