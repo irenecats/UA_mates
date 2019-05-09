@@ -159,6 +159,7 @@ body>div{
 		padding: .25em;
         width: 5em;
         cursor: pointer;
+        text-align: center;
     	font-family: 'Amatic SC', cursive;
     }
 
