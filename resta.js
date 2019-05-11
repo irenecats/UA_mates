@@ -225,7 +225,7 @@ function jugando(){
 		}
 	});
 
-	$("#saco>img").click(function(){
+	$("#saco").click(function(){
 		$("#manzanasUp").children().remove();
 		$("#manzanasDown").children().remove();
 		insertar("#manzanasUp",inicialUp);

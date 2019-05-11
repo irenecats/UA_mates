@@ -142,7 +142,14 @@ figure{
     #metidas{
         position: absolute;
         top: 45%;
-        left: 62.5%;
+        left: 60%;
+    }
+
+    .icon-arrows-ccw{
+        font-size: 3.5em;
+        position: absolute;
+        top: 47%;
+        left: 64%;
     }
 
 
@@ -254,6 +261,9 @@ body>div{
 
 
 
+
+
+
 /******************************* ANIMACIONES ***********************************/
 
 #mano, #mano8, #mano2, #mano3, #mano4, #mano5, #mano6, #mano7{
@@ -328,6 +338,8 @@ body>div{
         animation-duration: 3s;
         animation-name: corrigiendo;
     }
+
+
 
 
 
