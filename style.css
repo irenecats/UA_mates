@@ -83,3 +83,11 @@ a{
 a>label{
     font-size: 2em;
 }
+
+a:focus{
+    outline: 3px solid green;
+    box-shadow: 0 0 3px 3px green;
+    filter: grayscale(100%);
+}
+
+

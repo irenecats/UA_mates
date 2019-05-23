@@ -41,6 +41,16 @@ $(document).ready(function(){
     var y = document.getElementById("mano5");
     y.addEventListener("animationend", terminarAnimacion2);
 
+
+    $("#monedero>div>button").keyup(function(){
+        if(cont1 == 0){
+            $("#contenido").append($(this).clone());
+            $(this).remove();
+            $("#contenido").last().addClass("fuera");
+        }
+    });
+
+
 });
 var monedero;
 var dinero  = 0;
@@ -106,11 +116,11 @@ function comprobarP2(){
         cont2 = 0;
     }
     else if(dentro.length < minmonedas || ( dentro.length >= minmonedas && total <precio)){
-        console.log("Casi! Intentalo de nuevo");
+        console.log("¡Casi! Intentalo de nuevo");
         cont2 = 1;
     }
     else{
-        console.log("Casi! Intenta usar menos monedas")
+        console.log("¡Casi! Intenta usar menos monedas")
         cont2 = 2;
     }
     if( ayuda == 1){
@@ -287,10 +297,12 @@ function preparar(){
         
     }
 
+    $("#etiqueta>p").attr("title","El precio del objeto es: " + precio + " centimos");
+
     $("#etiqueta>p").text(precio+" cent.");
     minMonedas();
 
-    $("#monedero>div>img").each(function( index ) {
+    $("#monedero>div>button").each(function( index ) {
         $(this).draggable({
             revert: "invalid",
             cursor: "move"
@@ -371,13 +383,13 @@ function generaJuguete(){
     var juguete = $("#objeto");
     switch(num){
         case 0:
-            juguete.prepend("<img src='./Imagenes/osito.png'>");
+            juguete.prepend("<img alt='Osito de peluche de la tienda' src='./Imagenes/osito.png'>");
             break;
         case 1:
-            juguete.prepend("<img src='./Imagenes/patin.png'>")
+            juguete.prepend("<img alt='Patines de la tienda' src='./Imagenes/patin.png'>")
             break;
         case 2:
-            juguete.prepend("<img src='./Imagenes/rubik.png'>")
+            juguete.prepend("<img alt='Cubo de rubik de la tienda' src='./Imagenes/rubik.png'>")
             break;
     }
 }
@@ -391,19 +403,19 @@ function generaMonedas( cantidad ){
             case 0: 
                 console.log("Genero 5 cents");
                 dinero+=5;
-                $(monedero).append("<img src='./Imagenes/5-centimos.png' class='moneda5 not'>");
+                $(monedero).append("<button><img alt='Moneda de 5 centimos' title='Moneda de 5 centimos' src='./Imagenes/5-centimos.png' class='moneda5 not'></button>");
                 monedas.push(5);
                 break;
             case 1:
                 console.log("Genero 2 cents");
                 dinero+=2;
-                monedero.append("<img src='./Imagenes/2-cent.png' class='moneda2 not'>");
+                monedero.append("<button><img alt='Moneda de 2 centimos' title='Moneda de 2 centimos' src='./Imagenes/2-cent.png' class='moneda2 not'></button>");
                 monedas.push(2);
                 break;
             case 2:
                 console.log("Genero 1 cents");
                 dinero+=1;
-                monedero.append("<img src='./Imagenes/1-centimo.png' class='moneda1 not'>");
+                monedero.append("<button><img alt='Moneda de 1 centimo' title='Moneda de 1 centimos' src='./Imagenes/1-centimo.png' class='moneda1 not'></button>");
                 monedas.push(1);
                 break;
         }
@@ -503,6 +515,7 @@ function empezarAnimacion2(){
     $('#mano4').addClass('an4');
     $('#mano5').addClass('an5');
 }
+
 function terminarAnimacion2(){
     if(audioAyuda2 !== undefined){
         audioAyuda2.pause()
