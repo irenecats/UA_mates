@@ -59,11 +59,20 @@ body{
     color: black;
     margin-top: 2em;
     margin-right: 1.25em;
+    border: 3px solid transparent;
 }
 #profesor:hover{
     background-color: #ffb959;
     border-color: #ffb959;
     box-shadow: 0px 0px;
+}
+
+#profesor:focus{
+    box-shadow: none;
+    color: white;
+    background-color: black;
+    outline: none;
+    border: 3px solid white;
 }
 
 .icon{
@@ -80,7 +89,7 @@ a{
     color: black;
 }
 
-a>label{
+a>div{
     font-size: 2em;
 }
 

@@ -39,7 +39,7 @@ function randInt(max,  min){
 function insertar(id, num){
 	for(let i=1;i<=num;i++){
 		if(id == "#manzanasUp"){
-			$(id).append("<img src='./Imagenes/manzana.png' id='mu"+ i +"' width='70em' />");
+			$(id).append("<img  alt='Manzana' src='./Imagenes/manzana.png' id='mu"+ i +"' width='70em' />");
 			$("#mu"+i).draggable({
 				revert: "invalid",
 				containment: "document",
@@ -47,7 +47,7 @@ function insertar(id, num){
 			});
 		}
 		else{
-			$(id).append("<img src='./Imagenes/manzana.png' id='md"+ i +"' width='70em' />");
+			$(id).append("<img  alt='Manzana'  src='./Imagenes/manzana.png' id='md"+ i +"' width='70em' />");
 			$("#md"+i).draggable({
 				revert: "invalid",
 				containment: "document",
@@ -91,29 +91,23 @@ function resultados(num){
 
 //Se encarga del evento de cuando haces click en un boton
 function evento(){
-	$("span>div").click(function(){
-		//if(manzanasRestantes == (manzanas - valor)){
-			seleccionado = this.getAttribute("value");
-			idseleccionado = this.id;
-			$("span>div").removeClass("seleccionado");
-			if(!$("#"+idseleccionado + ">img").hasClass("incorrecto") && !$("#"+idseleccionado + ">img").hasClass("correcto")){
-				if(!seleccionCorrecta)
-					$("#"+idseleccionado).addClass("seleccionado");
-			}
-		/*}
-		else{
-			swal({
-				title: "El número de manzanas que quedan no es correcto. ¡Revisalo!",
-			});
-
-			
-			if((manzanas - valor) != manzanasRestantes)
-				errorManzanas = true;
-			else
-				errorManzanas = false;
-
-			guardar(0,1,0);
-		}*/
+	$("#seleccion>div>div").click(function(){
+		seleccionado = this.getAttribute("value");
+		idseleccionado = this.id;
+		$("#seleccion>div>div").removeClass("seleccionado");
+		if(!$("#"+idseleccionado + ">img").hasClass("incorrecto") && !$("#"+idseleccionado + ">img").hasClass("correcto")){
+			if(!seleccionCorrecta)
+				$("#"+idseleccionado).addClass("seleccionado");
+		}
+	});
+	$("#seleccion>div>div").keypress(function(){
+		seleccionado = this.getAttribute("value");
+		idseleccionado = this.id;
+		$("#seleccion>div>div").removeClass("seleccionado");
+		if(!$("#"+idseleccionado + ">img").hasClass("incorrecto") && !$("#"+idseleccionado + ">img").hasClass("correcto")){
+			if(!seleccionCorrecta)
+				$("#"+idseleccionado).addClass("seleccionado");
+		}
 	});
 
 }
@@ -203,29 +197,33 @@ function jugando(){
 		drop: function(event, ui){
 			manzanasArriba = $("#manzanasUp").children().length;
 			manzanasAbajo = $("#manzanasDown").children().length;
-			//if(manzanasRestantes != (manzanas - valor)){
-				$("#"+ui.draggable[0].id).remove();
-				manzanasRestantes--;
-				$("#metidas").empty();
-			$("#metidas").append("<label>" + (manzanas - manzanasRestantes) + "</label>");
-			//}
-			/*else{
-				swal({
-					title: "El número de manzanas ya es correcto",
-				});
-				guardar(0,1,0);
-				$("#manzanasUp").children().remove();
-				$("#manzanasDown").children().remove();
-				insertar("#manzanasUp",manzanasArriba);
-				insertar("#manzanasDown", manzanasAbajo);
-			}*/
-											
+			$("#"+ui.draggable[0].id).remove();
+			manzanasRestantes--;
+			$("#metidas").empty();
+			$("#metidas").append("<label>" + (manzanas - manzanasRestantes) + "</label>");							
 			$("#saco>img").css("width","20em");
 			$("#saco>img").css("margin","2em 3em");
 		}
 	});
 
+	//+++++++++++++++++ACCESIBILIDAD+++++++++++++++++++
+
+	$("#guardar").click(function(){
+		borrandoManzana();
+	});
+	//+++++++++++++++++ACCESIBILIDAD+++++++++++++++++++
+
 	$("#saco").click(function(){
+		$("#manzanasUp").children().remove();
+		$("#manzanasDown").children().remove();
+		insertar("#manzanasUp",inicialUp);
+		insertar("#manzanasDown", inicialDown);
+		manzanasRestantes = manzanas;
+		$("#metidas").empty();
+		$("#metidas").append("<label>0</label>");
+	});
+
+	$("#saco").keypress(function(){
 		$("#manzanasUp").children().remove();
 		$("#manzanasDown").children().remove();
 		insertar("#manzanasUp",inicialUp);
@@ -237,6 +235,30 @@ function jugando(){
 }
 
 
+//+++++++++++++++++ACCESIBILIDAD+++++++++++++++++++
+function borrandoManzana(){
+	manzanasArriba = $("#manzanasUp").children().length;
+		manzanasAbajo = $("#manzanasDown").children().length;
+		if(manzanasArriba > 0){
+			$("#manzanasUp>img").last().remove();
+			manzanasRestantes--;
+			$("#metidas").empty();
+			$("#metidas").append("<label>" + (manzanas - manzanasRestantes) + "</label>");							
+			$("#saco>img").css("width","20em");
+			$("#saco>img").css("margin","2em 3em");
+		}
+		else if(manzanasAbajo > 0){
+			$("#manzanasDown>img").last().remove();
+			manzanasRestantes--;
+			$("#metidas").empty();
+			$("#metidas").append("<label>" + (manzanas - manzanasRestantes) + "</label>");							
+			$("#saco>img").css("width","20em");
+			$("#saco>img").css("margin","2em 3em");
+		}
+}
+//+++++++++++++++++ACCESIBILIDAD+++++++++++++++++++
+
+
 
 
 //Cambio de CSS a los botones cuando aciertas
@@ -244,8 +266,8 @@ function acertasteBoton(){
 	$("#"+idseleccionado).removeClass("seleccionado");
 	$("#"+idseleccionado).addClass("acertaste");
 
-		$("span>div").css("box-shadow","none");
-		$("span>div").css("cursor","default");
+		$("#seleccion>div>div").css("box-shadow","none");
+		$("#seleccion>div>div").css("cursor","default");
 
 }
 
@@ -297,11 +319,12 @@ function correcto(){
 			 buttons: {
 				 cantch: {
 						text:"Otro juego",
-						value:"otro"
+						value:"otro",
+						focus
 						},
 				 catch: {
 					 text: "Volver a jugar",
-					 value: "rejugar",
+					 value: "rejugar"
 				 },
 			 },
 		 })
@@ -324,6 +347,7 @@ function operacionMal(){
 	$("#"+idseleccionado).prop("disabled", true);
 	$("#"+idseleccionado).css("box-shadow","none");
 	$("#"+idseleccionado).removeClass("seleccionado");
+	$("#"+idseleccionado).removeAttr("tabindex");
 	if((manzanas - valor) != manzanasRestantes)
 		errorManzanas = true;
 	else
@@ -373,6 +397,7 @@ function todoMal(){
 	$("#"+idseleccionado).prop("disabled", true);
 	$("#"+idseleccionado).css("box-shadow","none");
 	$("#"+idseleccionado).removeClass("seleccionado");
+	$("#"+idseleccionado).removeAttr("tabindex");
 	if(audio !== undefined){
 		audio.pause();
 	}
@@ -544,10 +569,53 @@ $(document).ready(function(){
 
 	});
 
+	$("#corregir").keypress(function(){
+
+		terminarAnimacion();
+		//Seleccionar una opcion
+		if(seleccionado == 0 && !seleccionCorrecta){
+			jugadoMal();
+		}
+		//El boton esta mal pero las manzanas bien
+		else if(seleccionado != (manzanas - valor) && manzanasRestantes == (manzanas - valor) && !seleccionCorrecta){
+			console.log('operacion mal');
+			operacionMal();
+			valorar(false);
+		}
+		//El boton esta bien pero las manzanas mal
+		else if(manzanasRestantes != (manzanas - valor) && seleccionado == (manzanas - valor)){
+			console.log('manzanas mal');
+			manzanasMal();
+			valorar(true);
+		}
+		//Todo mal
+		else if(seleccionado != (manzanas - valor) && manzanasRestantes != (manzanas - valor)){
+			console.log('todo mal');
+			todoMal();
+			valorar(false);
+		}
+		//Esta bien
+		else {
+			correcto();
+			valorar(true);
+		}
+
+		//Reinicio la variable
+		if(!seleccionCorrecta){
+			seleccionado = 0;
+			idseleccionado = 0;
+		}
+
+	});
+
 	
 	/******************** ANIMACIONES ********************/
 
 	$("#ayuda").click(function(e){
+		empezarAnimacion();
+	});
+
+	$("#ayuda").keypress(function(e){
 		empezarAnimacion();
 	});
 

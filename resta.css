@@ -1,7 +1,7 @@
 *{
     text-transform: uppercase;
     font-weight: bold;
-
+    /*filter: grayscale(100%);*/
 }
 
 
@@ -56,13 +56,13 @@ label{
 
 figure{
     margin-top: 0.5em;
-    height: 15em;
+    height: 10em;
 }
 
 
 
 #operacion{
-    margin: 0.25em auto 0.5em auto;
+    margin: 3.25em auto 0.5em auto;
     display: flex;
     align-items: center;
 }
@@ -70,10 +70,36 @@ figure{
     font-size: 2.75em !important;
     font-family: 'Sacramento', cursive;
 }
-#seleccion>span>div{
+#seleccion>div>div{
     font-size: 2.5em !important;
     font-family: 'Sacramento', cursive !important;
+    border: 3px solid transparent;
 }
+
+
+    #guardar{
+        background-color: white;
+        border: 3px solid transparent;
+        box-shadow: 0px 3px 5px 2px #aaa;
+        font-family: 'Amatic SC', cursive !important;
+        font-size: 2em;
+        width: 10em;
+        margin: 0.25em auto;
+        margin-left: 2em;
+        border-radius: 10px;
+    }
+
+    #guardar:hover{
+        cursor: pointer;
+    }
+
+    #seleccion>div>div:focus, #guardar:focus{
+        box-shadow: none;
+        color: white;
+        background-color: black;
+        outline: none;
+        border: 3px solid white;
+    }
 
 
 
@@ -89,12 +115,12 @@ figure{
         margin-left: .5em;
     }
 
-        #seleccion > span{
+        #seleccion > div{
             display: flex;
             flex-direction: row;
         }
 
-            #seleccion > span > div {
+            #seleccion > div > div {
                 margin: 0.25em 0.25em;
                 font-size: 2.5em;
                 font-weight: bold;
@@ -108,7 +134,7 @@ figure{
                 height: 1.5em;
             }
 
-            #seleccion > span > div:hover{
+            #seleccion > div > div:hover{
                  box-shadow: 0px 0px;
             }
 
@@ -120,6 +146,10 @@ figure{
         margin-top: 1em;
         margin-right: 2em;
         width: 30em;
+    }
+
+    #saco>img:focus{
+        outline: 3px solid black;
     }
 
         #saco>img{
@@ -168,6 +198,16 @@ body>div{
         cursor: pointer;
         text-align: center;
     	font-family: 'Amatic SC', cursive;
+        border: 2px solid transparent;
+    }
+
+    #ayuda:focus, #volver:focus, #corregir:focus{
+        box-shadow: none;
+        border: 2px solid white;
+        color: white;
+        background: #008cff;
+        border-radius: 0.25em;
+        outline: none;
     }
 
 
@@ -222,6 +262,14 @@ div.swal-footer{
     border-color: #ffb959 !important;
     box-shadow: 0px 0px !important;
 }
+
+.swal-button:focus{
+    background-color: black !important;
+    border-color: white !important;
+    box-shadow: 0px 0px !important;
+
+}
+
 h1,#saco>label,body>div:last-of-type>input,#rejugar{
     font-family: 'Amatic SC', cursive;
 }

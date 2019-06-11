@@ -1,17 +1,18 @@
 <!DOCTYPE html>
-</html>
+<html lang="es">
     <head>
 
         <meta charset="UTF-8">
         <meta name="author" content="Irene Clemente Aracil, Judith Mula Molina">
         <link rel="stylesheet" type="text/css" href="Icons/css/fontello.css" />
-        <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Sacramento" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Sacramento" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="resta.css" />
-        <script type="text/javascript" src="./jquery-3.3.1.js"></script>
-        <script type="text/javascript" src="resta.js"></script>
+        <script src="./jquery-3.3.1.js"></script>
+        <script src="resta.js"></script>
         
         <!--<script type="text/javascript" src="jQuery.ui.touch-punch.js"></script> -->
-        <script type="text/javascript" src="jquery-ui.min.js"></script>
+        <script src="jquery-ui.min.js"></script>
         <link rel="stylesheet" type="text/css" href="jquery-ui.min.css">
 
         <!-- Plugin de alerts -->
@@ -37,15 +38,16 @@
                     </span>
                     <div id="mano"></div>
                 </figure>
+                <button id="guardar" tabindex="1" title="Pulsa para guardar una manzana">Guardar manzana</button>
                 <div id="operacion">
                     <label></label>
                     <div id="seleccion">
-                        <span>
-                            <div id="v1"></div><div id="v2"></div>
-                        </span>
-                        <span>
-                            <div id="v3"></div><div id="v4"></div>
-                        </span>
+                        <div>
+                            <div tabindex="3" id="v1"></div><div tabindex="4" id="v2"></div>
+                        </div>
+                        <div>
+                            <div tabindex="5" id="v3"></div><div tabindex="6" id="v4"></div>
+                        </div>
                         <div id="mano3"></div>
                         <div id="mano4"></div>
                     </div>
@@ -55,7 +57,7 @@
     
 
             <div id="saco">
-                <img src="./Imagenes/saco.png"/>
+                <img tabindex="2" alt="Saco de manzanas" title="Pulsalo para sacar las manzanas" src="./Imagenes/saco.png"/>
                 <div style="color:black;" id="metidas"></div>
                 <span class="icon-arrows-ccw"></span>
                 <div id="mano2"></div>
@@ -64,14 +66,14 @@
         </main>
         <br>
         <div>
-            <a  id="volver" value="Volver"  class="boton">Volver <span class="icon-level-up icon"></span></a>
-            <a id="ayuda" value="Ayuda" class="boton">Ayuda <span class="icon-help icon"></span></a>
-            <a class="boton" id="rejugar" href="resta.html">Jugar otra vez <span class="icon-arrows-ccw icon"></span></a>   
-            <a class="boton" id="corregir" name="corregir" value="corregir">Corregir <span class="icon-ok icon"></span></a>
+            <a tabindex="7" title="Volver al menu de juegos" id="volver" href="index.html"  class="boton">Volver <span class="icon-level-up icon"></span></a>
+            <a tabindex="8" title="Mostrar ayuda" id="ayuda" class="boton">Ayuda <span class="icon-help icon"></span></a>
+            <a tabindex="9" title="Volver a jugar" class="boton" id="rejugar" href="resta.html">Jugar otra vez <span class="icon-arrows-ccw icon"></span></a>   
+            <a tabindex="10" title="Corregir" class="boton" id="corregir">Corregir <span class="icon-ok icon"></span></a>
         </div>
 
     </body>
 
 
-<html>
+</html>
     
