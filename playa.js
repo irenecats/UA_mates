@@ -3,7 +3,7 @@ var norep=[];
 var aciertos=0;
 var audio;
 var audioAyuda;
-
+var guardado=-1;
 $(document).ready(function(){
 
     //preparar todo lo necesario para que funcione el juego
@@ -23,22 +23,73 @@ $(document).ready(function(){
     $("#corregir").on("click", function(event){
         comprobar();
     });
-    //mostrar video/animación de ayuda
 
     //volver
+    $("#volver").on("click", function(event){
+        window.location.href = "index.html";
+    });
 
 
+    $("#contdraw>div").keypress(function(event){
+        selectSol($(this));
+    });
+
+    $("#contdrop>div").keypress(function(event){
+        if(guardado!=-1){
+
+            if($(this).children().length>0){
+                generaNuevo($(this));
+            }           
+            $(this).empty();
+
+            let clas=$("#contdraw").children().eq(guardado).remove().css("border","none").attr('class').split(" ")[0].slice(-1);
+            let newclas="res"+clas;
+           
+            let add="<div class='"+newclas+"'>"+clas+"</div>";
+
+            $(this).append(add);
+            guardado = -1;
+          
+            $(this).children().eq(0).draggable({
+                revert: "invalid",
+                cursor: "move"
+             });
+        }
+        else{
+            generaNuevo($(this));
+            $(this).empty();
+            
+        }
+        });
 
 	/******************** ANIMACIONES ********************/
     $("#ayuda").click(function(e){
 		empezarAnimacion();
 	});
 
+    
     var x = document.getElementById("mano7");
 	x.addEventListener("animationend", terminarAnimacion);
-    
 });
 
+function generaNuevo(elem){
+    let clas = $(elem).children().eq(0).attr('class').split(" ")[0].slice(-1);
+    let minum = $("#contdraw").children().eq(guardado).attr('class').split(" ")[0].slice(-1);
+    /*TODO ARREGLAR TABINDEX */
+    let num=$("#contdraw").children().length;
+    
+
+    let newclas = "sol" + clas;
+    let add = "<div class='" + newclas + "'>" + clas + "</div>";
+    console.log(add);
+    if(minum != clas){
+        $("#contdraw").append(add).children().last().draggable({
+            revert: "invalid",
+            cursor: "move"
+        });
+    }
+    arreglarIndex();    
+}
 
 function empezarAnimacion(){
 
@@ -106,8 +157,6 @@ function terminarAnimacion(){
     $("#mano7").removeClass("anim73");
 }
 
-
-
 function preparar(){
     max = randInt(5,11);
     var pelota = $("#contpelota"); 
@@ -154,7 +203,7 @@ function preparar(){
         if($("#contdraw").children().eq(rand).text()==""){
             console.log("   No hay nada en "+rand);
             let resto = max-norep[i];
-            $("#contdraw").children().eq(rand).text(max-norep[i]).addClass("sol"+resto);
+            $("#contdraw").children().eq(rand).text(max-norep[i]).addClass("sol"+resto).attr('tabindex', rand+1);
         }
         else{
             console.log("   Hay en "+rand);
@@ -169,7 +218,7 @@ function preparar(){
             do{
                 if($("#contdraw").children().eq(cont).text()==""){
                     let resto = max-norep[i];
-                    $("#contdraw").children().eq(cont).text(resto).addClass("sol"+resto);
+                    $("#contdraw").children().eq(cont).text(resto).addClass("sol"+resto).attr('tabindex', cont+1);
                     contr=true;
                     console.log("   No hay nada en "+cont);
                 }
@@ -200,12 +249,15 @@ function preparar(){
             let clas=ui.draggable.attr('class').split(" ")[0].slice(-1);
             let newclas="sol"+clas;
             let add="<div class='"+newclas+"'>"+clas+"</div>";
-
+            /*TODO ARREGLAR TABINDEX */
             $(this).append(add);
+           
             $(this).children().last().draggable({
                 revert: "invalid",
                 cursor: "move"
              });
+
+            arreglarIndex();
 
              ui.draggable.remove();
         },
@@ -229,6 +281,7 @@ function preparar(){
                             revert: "invalid",
                             cursor: "move"
                         });
+                        /*NOSEQUEESESTO*/
                     }
                 }
 
@@ -254,14 +307,13 @@ function preparar(){
     });
 }
 
-
 function comprobar(){
     var bien=mal=no=0;
 
     $("#contdrop>div").each(function( index ) {
        if( $(this).children().length<=0){
             no++;
-            console.log("sin responder")
+            console.log("sin responder");
        }
        else{
         let res = max-norep[norep.length-1-index];
@@ -281,7 +333,7 @@ function comprobar(){
                     $(this).children().eq(1).css("display", "block");
                 }
                 else{
-                    console.log("no cuento")
+                    console.log("no cuento");
                 }
            }
            else{
@@ -290,22 +342,22 @@ function comprobar(){
                 let clas = $(this).children().eq(0).attr("class").split(" ")[0].slice(-1);
                 let newclas = "sol"+clas;
                 let add = "<div class='"+newclas+"'>"+clas+"</div>";
-                console.log("hey")
+                /*TODO ARREGLAR TABINDEX */
                 $(contdraw).append(add).children().last().draggable({
                     revert: "invalid",
                     cursor: "move"
-                });;
-
-                $(this).children().eq(0).remove(); 
+                });
+                $(this).children().eq(0).remove();
+               
            }
            
        }
     });
-
+    arreglarIndex();
+    guardar=-1;
    corregir(bien,mal,no);
    haTerminado();
 }
-
 
 function haTerminado(){
     if(aciertos==4){
@@ -352,7 +404,6 @@ function haTerminado(){
     }
 }
 
-
 function corregir(bien, mal, sin){
 
     if(sessionStorage.getItem("pAciertos")==null){
@@ -378,6 +429,28 @@ function corregir(bien, mal, sin){
         var noResp = JSON.parse(sessionStorage.pVacio)+sin;
         sessionStorage.pVacio = JSON.stringify(noResp);
     }
+}
+
+function selectSol(elem){
+    console.log(guardado);
+    console.log($(elem).index());
+    if($(elem).index()==guardado){
+        $(elem).parent().children().eq(guardado).css("border"," 3px solid white");
+        guardado = -1;
+        
+    }
+    else {
+        $(elem).parent().children().eq(guardado).css("border"," 3px solid white");
+        guardado = $(elem).css("border","4px dashed #994f01").index();
+    }
+}
+
+function arreglarIndex(elem){
+    $("#contdraw").children().each(function( index ) {
+        $(this).attr("tabindex", index+1).keypress(function(event){
+            selectSol($(this));
+        });
+    });
 }
 
 

@@ -44,6 +44,13 @@ body{
     box-shadow: 0px 4px 5px 2px #cc9751;
     border-radius: 4px;
 }
+
+#contdraw>div:focus{
+    background-color: black;
+    border: 3px solid white;
+    color: white;
+}
+
 #contdrop>div>div{
     position: relative;
     top:30%;
@@ -177,6 +184,15 @@ div.swal-footer{
     background-color: #87d9ff;
     border-color: #87d9ff;
     box-shadow: 0px 0px;
+}
+
+.boton:focus{
+    box-shadow: none;
+    border: 3px solid white;
+    color: white;
+    background: #008cff;
+    border-radius: 0.25em;
+    outline: none;
 }
 
 .oculto{
