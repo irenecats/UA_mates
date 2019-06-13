@@ -55,7 +55,8 @@ $(document).ready(function(){
                 cursor: "move"
              });
         }
-        else{
+        else if($(this).children().length>0){
+            
             generaNuevo($(this));
             $(this).empty();
             
@@ -86,7 +87,9 @@ function generaNuevo(elem){
         $("#contdraw").append(add).children().last().draggable({
             revert: "invalid",
             cursor: "move"
-        });
+        }).keypress(function(event){
+            selectSol($(this));
+        });;
     }
     arreglarIndex();    
 }
@@ -255,7 +258,9 @@ function preparar(){
             $(this).children().last().draggable({
                 revert: "invalid",
                 cursor: "move"
-             });
+             }).keypress(function(event){
+                selectSol($(this));
+            });
 
             arreglarIndex();
 
@@ -346,6 +351,8 @@ function comprobar(){
                 $(contdraw).append(add).children().last().draggable({
                     revert: "invalid",
                     cursor: "move"
+                }).keypress(function(event){
+                    selectSol($(this));
                 });
                 $(this).children().eq(0).remove();
                
@@ -443,14 +450,14 @@ function selectSol(elem){
         $(elem).parent().children().eq(guardado).css("border"," 3px solid white");
         guardado = $(elem).css("border","4px dashed #994f01").index();
     }
+    console.log("seleccionando");
 }
 
 function arreglarIndex(elem){
     $("#contdraw").children().each(function( index ) {
-        $(this).attr("tabindex", index+1).keypress(function(event){
-            selectSol($(this));
-        });
+        $(this).attr("tabindex", index+1);
     });
+    console.log("tabindex cambiado");
 }
 
 
