@@ -44,15 +44,14 @@ $(document).ready(function(){
 
     $("#monedero>div>img").keypress(function(){
         if(cont1 == 0){
-            $("#contenido").append($(this).clone());
-            $(this).remove();
-            $("#contenido").last().addClass("fuera");
+            ElemMonedero($(this));
         }
     });
 
 
 });
 var monedero;
+var numMonedas;
 var dinero  = 0;
 var precio  = 0;
 var cont1   = 2;
@@ -95,16 +94,28 @@ function comprobarP2(){
    console.log(monedas)
    dentro = [];
    var total = 0;
-    $("#monedero>div").children().each(function( index ) {
+
+
+        
+        $("#monedero>div").children().each(function( index ) {
             var classes =$(this).attr('class').split(" ");
             //miro si están dentro
             if( classes[classes.length -1] == "added"){
                 var value = classes[0].slice(-1);
                 dentro.push(value);
             }
-            
-
-    });
+        });
+        console.log(dentro);
+        $("#contenido>img").each(function( index ) {
+           
+            var classes =$(this).attr('class').split(" ");
+            //miro si están dentro
+            console.log(classes);
+            if( classes[classes.length -1] == "added"){
+                var value = classes[0].slice(-1);
+                dentro.push(value);
+            }
+        });
 
     console.log(dentro);
     for(var i = 0; i<dentro.length; i++){
@@ -283,7 +294,7 @@ function muestraAlerta( boton){
 
 function preparar(){
 
-    var numMonedas      = randInt(2,5);
+    numMonedas      = randInt(2,5);
     var puedoComprar    = randInt(0,4);
 
     monedero = $("#monedero>div");
@@ -481,6 +492,24 @@ function corregirP2(){
 function randInt(max,  min){
     var random =Math.floor(Math.random() * (+max - +min)) + +min; 
     return random;
+}
+//accesibilidad
+function ElemMonedero(element){
+    $(element).addClass("added");
+
+    $("#contenido").append($(element).clone()).children().last().keypress(function(){
+        ElemCaja($(this));
+    });
+    $(element).remove(); 
+}
+
+function ElemCaja(element){
+    $(element).removeClass("added");
+
+    $("#monedero>div").append($(element).clone()).children().last().keypress(function(){
+        ElemMonedero($(this));
+    });
+    $(element).remove(); 
 }
 
 //animacion
