@@ -122,6 +122,11 @@ h1{
     width: 4em;
 }
 
+#contenido>.moneda1, #contenido>.moneda2, #contenido>.moneda5{
+    width: 2em !important;
+    margin: 0.5em auto !important;
+}
+
 
 button{
     margin: 0.25em 0.25em;
@@ -231,12 +236,17 @@ body>div>input{
 }
 
 #ayuda:focus, #volver:focus, #corregir:focus{
-    box-shadow: none;
-    border: 2px solid white;
-    color: white;
-    background: #008cff;
     border-radius: 0.25em;
+    box-shadow: none;
+    color: white;
+    background-color: black;
     outline: none;
+    border: 3px solid white;
+}
+
+img:focus{
+    outline: 3px solid black;
+    box-shadow: 0 0 3px 3px black;
 }
 
 
@@ -244,6 +254,14 @@ body>div>input{
 .swal-button{
     width: auto;
 }
+
+.swal-button:focus{
+    background-color: black !important;
+    border-color: white !important;
+    box-shadow: 0px 0px !important;
+
+}
+
 .swal-modal{
     height: fit-content;
 }

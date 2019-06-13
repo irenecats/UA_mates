@@ -41,6 +41,7 @@ body{
     background-color: lightgoldenrodyellow;
     margin: 0.85em 0.5em; 
     font-size: 1.2em;
+    border: 3px solid transparent;
     box-shadow: 0px 4px 5px 2px #cc9751;
     border-radius: 4px;
 }
@@ -53,8 +54,15 @@ body{
 
 #contdrop>div>div{
     position: relative;
-    top:30%;
+    top:35%;
     font-family: 'Sacramento', cursive !important;
+    border: 3px solid transparent;
+}
+
+#contdrop>div:focus{
+    border: 3px dashed black;
+    border-radius: 0.5em;
+    outline: none;
 }
 
 p{
@@ -105,6 +113,7 @@ body>div{
     display: flex;
     flex-flow: column;
     margin-right: 1em;
+    margin-top: 0.25em;
 }
 #contpelota>div>img{
     float: right;
@@ -147,6 +156,10 @@ a{
 #rejugar{
     display: none;
 }
+
+
+
+
 .swal-modal{
     height: fit-content !important;
     margin: auto; /* Metido por la Judis*/
@@ -164,12 +177,19 @@ div.swal-footer{
     box-shadow: 0px 0px !important;
 }
 
+.swal-button:focus{
+    background-color: black !important;
+    border-color: white !important;
+    box-shadow: 0px 0px !important;
+}s
+
 .boton{
     float: right;
     margin: 0.5em;
     font-size: 2em;
     padding: 0.3em 0.5em;
     border-radius: 5px;
+    border: 3px solid transparent;
     background-color: #b5e8ff;
     border-color: #b5e8ff;
     font-weight: bold; 
@@ -190,7 +210,7 @@ div.swal-footer{
     box-shadow: none;
     border: 3px solid white;
     color: white;
-    background: #008cff;
+    background: #000;
     border-radius: 0.25em;
     outline: none;
 }

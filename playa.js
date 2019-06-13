@@ -389,7 +389,8 @@ function haTerminado(){
                buttons: {
                  cantch: {
                     text:"Otro juego",
-                    value:"otro"
+                    value:"otro",
+                    focus
                     },
                  catch: {
                    text: "Volver a jugar",

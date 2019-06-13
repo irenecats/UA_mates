@@ -42,7 +42,7 @@ $(document).ready(function(){
     y.addEventListener("animationend", terminarAnimacion2);
 
 
-    $("#monedero>div>button").keyup(function(){
+    $("#monedero>div>img").keypress(function(){
         if(cont1 == 0){
             $("#contenido").append($(this).clone());
             $(this).remove();
@@ -147,7 +147,8 @@ function muestraAlerta( boton){
                     buttons: {
                      cantch: {
                         text:"Aceptar",
-                        value:"pasarJuego"
+                        value:"pasarJuego",
+                        focus
                         }
                    }
             })
@@ -194,6 +195,7 @@ function muestraAlerta( boton){
             audio.play();
             swal("¡Casi! Intentalo de nuevo",  {
                 button: "Aceptar",
+                focus
               });
 
               if(boton == 0){
@@ -225,7 +227,8 @@ function muestraAlerta( boton){
                    buttons: {
                      cantch: {
                         text:"Otro juego",
-                        value:"otro"
+                        value:"otro",
+                        focus
                         },
                      catch: {
                        text: "Volver a jugar",
@@ -269,6 +272,7 @@ function muestraAlerta( boton){
                    buttons: {
                     cantch: {
                        text:"Aceptar",
+                       focus
                        }
                   },
                  })
@@ -302,7 +306,7 @@ function preparar(){
     $("#etiqueta>p").text(precio+" cent.");
     minMonedas();
 
-    $("#monedero>div>button").each(function( index ) {
+    $("#monedero>div>img").each(function( index ) {
         $(this).draggable({
             revert: "invalid",
             cursor: "move"
@@ -403,19 +407,19 @@ function generaMonedas( cantidad ){
             case 0: 
                 console.log("Genero 5 cents");
                 dinero+=5;
-                $(monedero).append("<button><img alt='Moneda de 5 centimos' title='Moneda de 5 centimos' src='./Imagenes/5-centimos.png' class='moneda5 not'></button>");
+                $(monedero).append("<img tabindex="+(cantidad-1)+" alt='Moneda de 5 centimos' title='Moneda de 5 centimos' src='./Imagenes/5-centimos.png' class='moneda5 not'>");
                 monedas.push(5);
                 break;
             case 1:
                 console.log("Genero 2 cents");
                 dinero+=2;
-                monedero.append("<button><img alt='Moneda de 2 centimos' title='Moneda de 2 centimos' src='./Imagenes/2-cent.png' class='moneda2 not'></button>");
+                monedero.append("<img tabindex="+(cantidad-1)+"  alt='Moneda de 2 centimos' title='Moneda de 2 centimos' src='./Imagenes/2-cent.png' class='moneda2 not'>");
                 monedas.push(2);
                 break;
             case 2:
                 console.log("Genero 1 cents");
                 dinero+=1;
-                monedero.append("<button><img alt='Moneda de 1 centimo' title='Moneda de 1 centimos' src='./Imagenes/1-centimo.png' class='moneda1 not'></button>");
+                monedero.append("<img tabindex="+(cantidad-1)+"  alt='Moneda de 1 centimo' title='Moneda de 1 centimos' src='./Imagenes/1-centimo.png' class='moneda1 not'>");
                 monedas.push(1);
                 break;
         }

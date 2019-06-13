@@ -73,7 +73,7 @@ figure{
 #seleccion>div>div{
     font-size: 2.5em !important;
     font-family: 'Sacramento', cursive !important;
-    border: 3px solid transparent;
+    border: 5px solid transparent !important;
 }
 
 
@@ -98,7 +98,7 @@ figure{
         color: white;
         background-color: black;
         outline: none;
-        border: 3px solid white;
+        border: 5px solid white !important;
     }
 
 
@@ -150,6 +150,7 @@ figure{
 
     #saco>img:focus{
         outline: 3px solid black;
+       box-shadow: 0 0 5px 3px black;
     }
 
         #saco>img{
@@ -205,7 +206,7 @@ body>div{
         box-shadow: none;
         border: 2px solid white;
         color: white;
-        background: #008cff;
+        background: #000000;
         border-radius: 0.25em;
         outline: none;
     }
@@ -267,7 +268,6 @@ div.swal-footer{
     background-color: black !important;
     border-color: white !important;
     box-shadow: 0px 0px !important;
-
 }
 
 h1,#saco>label,body>div:last-of-type>input,#rejugar{

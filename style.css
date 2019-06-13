@@ -94,8 +94,8 @@ a>div{
 }
 
 a:focus{
-    outline: 3px solid green;
-    box-shadow: 0 0 3px 3px green;
+    outline: 3px solid black;
+    box-shadow: 0 0 3px 3px black;
     filter: grayscale(100%);
 }
 

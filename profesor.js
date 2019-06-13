@@ -1,4 +1,7 @@
 $(document).ready(function(){
+
+   $("#profesor").focus();
+
 var aciertosplaya=erroresplaya=nojuegaplaya=0;
 var aciertosmanzana=errorescontar=erroresrestar=0;
 var Mpartidas = Tpartidas = Ppartidas = 0;
