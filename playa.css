@@ -207,10 +207,9 @@ div.swal-footer{
 }
 
 .boton:focus{
-    box-shadow: none;
+    background-color: black;
     border: 3px solid white;
     color: white;
-    background: #000;
     border-radius: 0.25em;
     outline: none;
 }
