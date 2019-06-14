@@ -34,9 +34,15 @@ $(document).ready(function(){
             empezarAnimacion2();
         }
     });
-
-    var x = document.getElementById("mano3");
-    x.addEventListener("animationend", terminarAnimacion1);
+   
+    var x1 = document.getElementById("mano");
+    x1.addEventListener("animationend", cambiaSubs);
+    var x1 = document.getElementById("mano2");
+    x1.addEventListener("animationend", cambiaSubs);
+    var x3 = document.getElementById("mano3");
+    x3.addEventListener("animationend", terminarAnimacion1);
+    var x4 = document.getElementById("mano4");
+    x4.addEventListener("animationend", cambiaSubs);
     //Segunda parte
     var y = document.getElementById("mano5");
     y.addEventListener("animationend", terminarAnimacion2);
@@ -62,6 +68,7 @@ var ayuda = 0;
 var audio;
 var audioAyuda1;
 var audioAyuda2;
+var sub=-1;
 
 function comprobarP1( boton ){
     var resta = precio - dinero;
@@ -522,7 +529,9 @@ function empezarAnimacion1(){
     }
     audioAyuda1 = new Audio('./Audio/Tienda_1.wav');
     audioAyuda1.play();
-
+    sub=0;
+    $('#subtitulos').text('En este lado tienes una serie de monedas que suman una cantidad.');
+    $('#subtitulos').addClass('sub');
     $('#mano').addClass('an1');
     $('#mano2').addClass('an2');
     $('#mano3').addClass('an3');
@@ -531,6 +540,9 @@ function terminarAnimacion1(){
     if(audioAyuda1 !== undefined){
         audioAyuda1.pause()
     }
+    sub=-1;
+    $('#subtitulos').removeClass('sub');
+    $('#subtitulos').text('');
     $('#mano').removeClass('an1');
     $('#mano2').removeClass('an2');
     $('#mano3').removeClass('an3');
@@ -543,6 +555,9 @@ function empezarAnimacion2(){
     if(audio !== undefined){
         audio.pause()
     }
+    sub=3;
+    $('#subtitulos').text('Arrastra el mínimo de monedas necesarias para comprar el objeto.');
+    $('#subtitulos').addClass('sub');
     audioAyuda2 = new Audio('./Audio/Tienda_2.wav');
     audioAyuda2.play();
     $('#mano4').addClass('an4');
@@ -553,6 +568,26 @@ function terminarAnimacion2(){
     if(audioAyuda2 !== undefined){
         audioAyuda2.pause()
     }
+    sub=-1;
+    $('#subtitulos').removeClass('sub');
+    $('#subtitulos').text('');
     $('#mano4').removeClass('an4');
     $('#mano5').removeClass('an5');
+}
+//subtitulos
+
+function cambiaSubs(){
+
+    sub++;
+    switch(sub){
+        case 1:  $('#subtitulos').text('En este otro, tienes el objeto que quieres comprar con el precio indicado en una etiqueta.');
+            break;
+        case 2:  $('#subtitulos').text('Elige SI o NO, según si puedes comprar el objeto con las monedas que tienes.');
+            break;
+        case 3: $('#subtitulos').text('');
+            break;
+        case 4: $('#subtitulos').text('Cuando lo tengas, pulsa corregir para saber si lo tienes bien.');
+            break;
+    }
+
 }

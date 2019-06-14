@@ -296,7 +296,14 @@ img:focus{
 .incorrecto{
     font-size: 0.75em;
 }
+/* subtitulos */
+#subtitulos{
+    position: absolute;
+    left: 155px;
+    bottom: 40px;
+    font-size: 1.5em;
 
+}
 /* animacion */
 #mano{
     -webkit-transform: rotate(135deg);
