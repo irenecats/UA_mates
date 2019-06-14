@@ -531,7 +531,6 @@ function empezarAnimacion1(){
     audioAyuda1.play();
     sub=0;
     $('#subtitulos').text('En este lado tienes una serie de monedas que suman una cantidad.');
-    $('#subtitulos').addClass('sub');
     $('#mano').addClass('an1');
     $('#mano2').addClass('an2');
     $('#mano3').addClass('an3');
@@ -541,7 +540,6 @@ function terminarAnimacion1(){
         audioAyuda1.pause()
     }
     sub=-1;
-    $('#subtitulos').removeClass('sub');
     $('#subtitulos').text('');
     $('#mano').removeClass('an1');
     $('#mano2').removeClass('an2');
@@ -557,7 +555,6 @@ function empezarAnimacion2(){
     }
     sub=3;
     $('#subtitulos').text('Arrastra el mínimo de monedas necesarias para comprar el objeto.');
-    $('#subtitulos').addClass('sub');
     audioAyuda2 = new Audio('./Audio/Tienda_2.wav');
     audioAyuda2.play();
     $('#mano4').addClass('an4');
@@ -569,7 +566,6 @@ function terminarAnimacion2(){
         audioAyuda2.pause()
     }
     sub=-1;
-    $('#subtitulos').removeClass('sub');
     $('#subtitulos').text('');
     $('#mano4').removeClass('an4');
     $('#mano5').removeClass('an5');
@@ -580,13 +576,11 @@ function cambiaSubs(){
 
     sub++;
     switch(sub){
-        case 1:  $('#subtitulos').text('En este otro, tienes el objeto que quieres comprar con el precio indicado en una etiqueta.');
+        case 1:  $('#subtitulos').text('En este otro, tienes el objeto que quieres comprar con el precio indicado en una etiqueta');
             break;
-        case 2:  $('#subtitulos').text('Elige SI o NO, según si puedes comprar el objeto con las monedas que tienes.');
+        case 2:  $('#subtitulos').text('Elige SI o NO, según si puedes comprar el objeto con las monedas que tienes');
             break;
-        case 3: $('#subtitulos').text('');
-            break;
-        case 4: $('#subtitulos').text('Cuando lo tengas, pulsa corregir para saber si lo tienes bien.');
+        case 4: $('#subtitulos').text('Cuando lo tengas, pulsa corregir para saber si lo tienes bien');
             break;
     }
 

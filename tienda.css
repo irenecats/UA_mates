@@ -302,7 +302,7 @@ img:focus{
     left: 155px;
     bottom: 40px;
     font-size: 1.5em;
-
+    width: fit-content;
 }
 /* animacion */
 #mano{

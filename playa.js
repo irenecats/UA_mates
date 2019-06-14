@@ -4,6 +4,7 @@ var aciertos=0;
 var audio;
 var audioAyuda;
 var guardado=-1;
+var sub=-1;
 $(document).ready(function(){
 
     //preparar todo lo necesario para que funcione el juego
@@ -68,7 +69,18 @@ $(document).ready(function(){
 		empezarAnimacion();
 	});
 
-    
+    var x1 = document.getElementById("mano1");
+    x1.addEventListener("animationend", cambiaSubs);
+    var x2 = document.getElementById("mano2");
+    x2.addEventListener("animationend", cambiaSubs);
+    var x3 = document.getElementById("mano3");
+    x3.addEventListener("animationend", cambiaSubs);
+    var x4 = document.getElementById("mano4");
+    x4.addEventListener("animationend", cambiaSubs);
+    var x5 = document.getElementById("mano5");
+    x5.addEventListener("animationend", cambiaSubs);
+    var x6 = document.getElementById("mano6");
+	x6.addEventListener("animationend", cambiaSubs);
     var x = document.getElementById("mano7");
 	x.addEventListener("animationend", terminarAnimacion);
 });
@@ -107,7 +119,8 @@ function empezarAnimacion(){
         if(e >= elem)
             elem = e;
     });
-
+    sub=0;
+    $('#subtitulos').text('El título te indicará hasta qué valor de resultado debes llegar');
     if(elem >= 8){
         $("#mano1").addClass("anim1");
         $("#mano2").addClass("anim22");
@@ -138,9 +151,14 @@ function empezarAnimacion(){
 }
 
 function terminarAnimacion(){
+    
     if(audioAyuda !== undefined){
         audioAyuda.pause()
     }
+
+    sub=-1;
+    $('#subtitulos').text('');
+
     $("#mano1").removeClass("anim1");
     $("#mano2").removeClass("anim22");
     $("#mano3").removeClass("anim32");
@@ -465,4 +483,26 @@ function arreglarIndex(elem){
 function randInt(max,  min){
     var random =Math.floor(Math.random() * (+max - +min)) + +min; 
     return random;
+}
+
+//subtitulos
+
+function cambiaSubs(){
+
+    sub++;
+    switch(sub){
+        case 1:  $('#subtitulos').text('Las pelotas indicarán la cantidad inicial');
+            break;
+        case 2:  $('#subtitulos').text('Y las tarjetas indican la cantidad a sumar');
+            break;
+        case 3: $('#subtitulos').text('Arrastra cada una de las tarjetas a su operación para que las sumas den como resultado');
+            break;
+        case 4: $('#subtitulos').text(' el número indicado en el título');
+            break;
+        case 5: $('#subtitulos').text('Cuando lo tengas todo, pulsa corregir y las tarjetas incorrectas');
+            break;
+        case 6: $('#subtitulos').text(' aparecerán en su posición inicial');
+            break;
+    }
+
 }
