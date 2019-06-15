@@ -23,6 +23,9 @@ var seleccionCorrecta;
 var audio;
 var audioAyuda;
 
+//subtitulos
+var sub=-1;
+
 
 
 
@@ -483,6 +486,9 @@ function empezarAnimacion(){
 	audioAyuda = new Audio('./Audio/manzanas.wav');
 	audioAyuda.play();
 
+	sub=0;
+	$('#subtitulos').text('Aqui tienes una serie de manzanas');
+
 	$("#mano").addClass("anim1");
 	$("#mano2").addClass("anim2");
 	$("#mano3").addClass("anim3");
@@ -493,12 +499,17 @@ function empezarAnimacion(){
 	$("#corregir").addClass("anim62");
 	$("#mano7").addClass("anim7");
 	$("#mano8").addClass("anim8");
+
+	$("#subtitulos").css("padding",".25em .5em");
+	$("#subtitulos").css("display","block");
 }
 
 function terminarAnimacion(){
 	if(audioAyuda !== undefined){
         audioAyuda.pause()
-    }
+	}
+	sub=-1;
+    $('#subtitulos').text('');
 	$("#mano").removeClass("anim1");
 	$("#mano2").removeClass("anim2");
 	$("#mano3").removeClass("anim3");
@@ -509,7 +520,33 @@ function terminarAnimacion(){
 	$("#corregir").removeClass("anim62");
 	$("#mano7").removeClass("anim7");
 	$("#mano8").removeClass("anim8");
+
+	$("#subtitulos").css("padding","0em");
 }
+
+
+
+function cambiaSubs(){
+
+	sub++;
+	console.log("He entrado y el subtitulo es: " +sub);
+    switch(sub){
+        case 2:  $('#subtitulos').text('Arrastra al saco la cantidad que indica la operación. Por ejemplo:');
+            break;
+        case 3:  $('#subtitulos').text('si la resta es 5-2, quita 3');
+            break;
+        case 4: $('#subtitulos').text('Pulsa el saco para que vuelvan a aparecer las manzanas que había antes');
+            break;
+        case 5: $('#subtitulos').text('Después, elige la opción correcta de entre las 4 posibles');
+            break;
+        case 6: $('#subtitulos').text('Debe ser el resultado');
+            break;
+        case 7: $('#subtitulos').text('Cuando lo tengas, pulsa corregir para saber si lo tienes bien');
+            break;
+    }
+
+}
+
 
 
 /*****************************************************/
@@ -619,11 +656,29 @@ $(document).ready(function(){
 		empezarAnimacion();
 	});
 
+
+	var x1 = document.getElementById("mano");
+	x1.addEventListener("animationstart", cambiaSubs);
+	console.log(x1);
+	var x2 = document.getElementById("mano2");
+	x2.addEventListener("animationstart", cambiaSubs);
+	var x3 = document.getElementById("mano3");
+	x3.addEventListener("animationstart", cambiaSubs);
+	var x4 = document.getElementById("mano4");
+	x4.addEventListener("animationstart", cambiaSubs);
+	var x5 = document.getElementById("mano5");
+	x5.addEventListener("animationstart", cambiaSubs);
+	var x6 = document.getElementById("mano6");
+	x6.addEventListener("animationstart", cambiaSubs);
+	var x7 = document.getElementById("mano7");
+	x7.addEventListener("animationstart", cambiaSubs);
+	var x8 = document.getElementById("mano8");
+	x8.addEventListener("animationstart", cambiaSubs);
+
 	var x = document.getElementById("mano6");
 	x.addEventListener("animationend", terminarAnimacion);
 
 });
-
 
 
 

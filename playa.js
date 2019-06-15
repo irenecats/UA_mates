@@ -493,13 +493,13 @@ function cambiaSubs(){
     switch(sub){
         case 1:  $('#subtitulos').text('Las pelotas indicarán la cantidad inicial');
             break;
-        case 2:  $('#subtitulos').text('Y las tarjetas indican la cantidad a sumar');
+        case 2:  $('#subtitulos').text('Y las tarjetas la cantidad a sumar');
             break;
-        case 3: $('#subtitulos').text('Arrastra cada una de las tarjetas a su operación para que las sumas den como resultado');
+        case 3: $('#subtitulos').text('Arrastra cada tarjetas a su operación para que las sumas den como resultado');
             break;
         case 4: $('#subtitulos').text(' el número indicado en el título');
             break;
-        case 5: $('#subtitulos').text('Cuando lo tengas todo, pulsa corregir y las tarjetas incorrectas');
+        case 5: $('#subtitulos').text('Cuando lo tengas, pulsa corregir. Las tarjetas incorrectas');
             break;
         case 6: $('#subtitulos').text(' aparecerán en su posición inicial');
             break;

@@ -308,7 +308,20 @@ body>div{
 
 
 
+/************************************* SUBTITULOS *********************************/
 
+
+#subtitulos{
+    margin: auto;
+    /*position: absolute;
+    left: 10%;
+    bottom: 10%;*/
+    background-color: #aaa;
+    border-radius: .5em;
+    font-size: 1.5em;
+    width: fit-content;
+    font-family: 'Amatic SC', cursive;
+}
 
 
 

@@ -298,9 +298,10 @@ img:focus{
 }
 /* subtitulos */
 #subtitulos{
-    position: absolute;
+    /*position: absolute;
     left: 155px;
-    bottom: 40px;
+    bottom: 40px;*/
+    margin: auto;
     font-size: 1.5em;
     width: fit-content;
 }
@@ -384,9 +385,9 @@ img:focus{
     from{
         background-image: url(./Imagenes/mano.png);
     }
-    0%   {top: 65%;left: 39%; background-image: url(./Imagenes/mano.png);}
-    50%  {top: 65%;left: 55%; background-image: url(./Imagenes/mano.png);}
-    100% {top: 65%;left: 39%; background-image: url(./Imagenes/mano.png);}
+    0%   {top: 60%;left: 39%; background-image: url(./Imagenes/mano.png);}
+    50%  {top: 60%;left: 55%; background-image: url(./Imagenes/mano.png);}
+    100% {top: 60%;left: 39%; background-image: url(./Imagenes/mano.png);}
 }
 
 @keyframes anim4 {

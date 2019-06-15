@@ -219,9 +219,10 @@ div.swal-footer{
 }
 /* subtitulos */
 #subtitulos{
-    position: absolute;
+    margin:auto;
+    /*position: absolute;
     left: 200px;
-    bottom: 80px;
+    bottom: 80px;*/
     font-size: 1.5em;
     width: fit-content;
     font-family: 'Amatic SC', cursive;

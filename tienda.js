@@ -530,7 +530,7 @@ function empezarAnimacion1(){
     audioAyuda1 = new Audio('./Audio/Tienda_1.wav');
     audioAyuda1.play();
     sub=0;
-    $('#subtitulos').text('En este lado tienes una serie de monedas que suman una cantidad.');
+    $('#subtitulos').text('Aquí tienes una serie de monedas que suman una cantidad');
     $('#mano').addClass('an1');
     $('#mano2').addClass('an2');
     $('#mano3').addClass('an3');
@@ -554,7 +554,7 @@ function empezarAnimacion2(){
         audio.pause()
     }
     sub=3;
-    $('#subtitulos').text('Arrastra el mínimo de monedas necesarias para comprar el objeto.');
+    $('#subtitulos').text('Arrastra el mínimo de monedas necesarias para comprar el objeto');
     audioAyuda2 = new Audio('./Audio/Tienda_2.wav');
     audioAyuda2.play();
     $('#mano4').addClass('an4');
@@ -576,7 +576,7 @@ function cambiaSubs(){
 
     sub++;
     switch(sub){
-        case 1:  $('#subtitulos').text('En este otro, tienes el objeto que quieres comprar con el precio indicado en una etiqueta');
+        case 1:  $('#subtitulos').text('En este otro, el objeto que quieres comprar con el precio indicado en la etiqueta');
             break;
         case 2:  $('#subtitulos').text('Elige SI o NO, según si puedes comprar el objeto con las monedas que tienes');
             break;
