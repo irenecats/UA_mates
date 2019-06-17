@@ -207,9 +207,9 @@ function preparar(){
     for (i = 0; i < 4; i++) {
         pelota.prepend("<div id='grp"+i+"'>")
         for(let j=0; j< norep[i];j++){
-            pelota.children().first().append("<img src='./Imagenes/pelota.png'>")
+            pelota.children().first().append("<img alt='Pelota' src='./Imagenes/pelota.png'>")
             if(j==norep[i]-1){
-               pelota.children().first().prepend("<img src='./Imagenes/plus.png'>");
+               pelota.children().first().prepend("<img alt='Pelota' src='./Imagenes/plus.png'>");
             }
         }
     }
