@@ -138,6 +138,10 @@ body>div{
     background-color:  rgb(185, 255, 120) !important;
     border-color: rgb(185, 255, 120) !important;
 }
+.correcto:focus{
+  border: black solid 3px !important;
+}
+
 .correcto>div{
     top:-110% !important;
 }
