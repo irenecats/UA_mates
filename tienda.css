@@ -259,6 +259,10 @@ img:focus{
     width: auto;
 }
 
+.swal-footer{
+    text-align: center;
+}
+
 .swal-button:focus{
     background-color: black !important;
     border-color: white !important;
